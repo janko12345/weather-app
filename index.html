@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link rel="stylesheet" href="styles/styles.css" />
+        <link
+            rel="shortcut icon"
+            href="assets/app-logo.png?v1"
+            type="image/x-icon"
+        />
+        <title>weather app</title>
+    </head>
+
+    <body>
+        <div class="wrapper">
+            <!-- nav -->
+            <nav class="sidebar flex-column-between">
+                <div class="sidebar-header">
+                    <h2 class="sidebar-title">Forecast for</h2>
+                    <h3 class="sidebar-city">Dolná Streda</h3>
+                    <div class="sidebar-searchbar">
+                        <input type="text" class="sidebar-search" />
+                        <img
+                            src="assets/decoratives/search-icon.png"
+                            alt="magnifying glass"
+                            class="sidebar-search-img"
+                        />
+                    </div>
+                    <div class="fetch-response">
+                        <img
+                            src="assets/indicators/loading.png"
+                            alt="loading..."
+                            class="loading"
+                        />
+                        <p>city not found</p>
+                    </div>
+                </div>
+                <!-- days -->
+                <div class="days">
+                    <div class="day today">
+                        <div class="day-top">
+                            <img src="dynamic" alt="dynamic" class="day-img" />
+                            <p class="day-temp">
+                                <span class="day-temp-min">-15</span>
+                                /
+                                <span class="day-temp-max">15</span
+                                ><span class="day-temp-unit">C</span>
+                            </p>
+                        </div>
+                        <div class="day-bottom">
+                            <p class="day-which">wednesday</p>
+                            <p class="day-weather">snowy</p>
+                        </div>
+                    </div>
+                    <div class="next-days">
+                        <h4 class="next-days-title">next 2 days forecast</h4>
+                        <div class="day tommorow">
+                            <div class="day-top">
+                                <img
+                                    src="dynamic"
+                                    alt="dynamic"
+                                    class="day-img"
+                                />
+                                <p class="day-temp">
+                                    <span class="day-temp-min">-15</span>
+                                    /
+                                    <span class="day-temp-max">15</span
+                                    ><span class="day-temp-unit">C</span>
+                                </p>
+                            </div>
+                            <div class="day-bottom">
+                                <p class="day-which">wednesday</p>
+                                <p class="day-weather">snowy</p>
+                            </div>
+                        </div>
+                        <div class="day day-after-tommorow">
+                            <div class="day-top">
+                                <img
+                                    src="dynamic"
+                                    alt="dynamic"
+                                    class="day-img"
+                                />
+                                <p class="day-temp">
+                                    <span class="day-temp-min">-15</span>
+                                    /
+                                    <span class="day-temp-max">15</span
+                                    ><span class="day-temp-unit">C</span>
+                                </p>
+                            </div>
+                            <div class="day-bottom">
+                                <p class="day-which">wednesday</p>
+                                <p class="day-weather">snowy</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </nav>
+            <!-- main -->
+            <main class="main">
+                <div class="main-header">
+                    <div class="main-header-buttons">
+                        <img
+                            src="assets/buttons/settings-img.png"
+                            alt="gear icon"
+                            class="configure-icon"
+                        />
+                        <div class="hamburger"></div>
+                    </div>
+                    <div class="brand">
+                        <h1 class="brand-name">weather-watcher</h1>
+                        <img
+                            src="assets/app-logo.png"
+                            alt="eye in clouds"
+                            class="brand-logo"
+                        />
+                    </div>
+                </div>
+                <div class="sub-main">
+                    <div class="rise-set">
+                        <div class="sun-moon-toggler"></div>
+                        <div class="sun-info rise-set-info">
+                            <div class="sun-rise">
+                                <p class="rise-set-info-text">
+                                    sun rises 06:00
+                                </p>
+                            </div>
+                            <div class="sun-set">
+                                <p class="rise-set-info-text">
+                                    moon sets 19:00
+                                </p>
+                            </div>
+                        </div>
+                        <div class="moon-info rise-set-info">
+                            <div class="moon-rise">
+                                <p class="rise-set-info-text">
+                                    moon rises 20:00
+                                </p>
+                            </div>
+                            <div class="moon-set">
+                                <p class="rise-set-info-text">
+                                    moon sets 05:00
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="forecasts-wrapper">
+                        <div class="forecasts-buttons">
+                            <img
+                                src="assets/buttons/hour-dropdown.png"
+                                alt="toggler"
+                                class="forecasts-drowpdown"
+                            />
+                            <img
+                                src="assets/buttons/switch-info.png"
+                                alt="swap arrows"
+                                class="forecasts-change-info"
+                            />
+                        </div>
+                        <!-- hour forecasts -->
+                        <div class="forecasts">
+                            <div class="forecast">
+                                <div class="forecast-header">
+                                    <p class="forecast-hour">15:30</p>
+                                    <img
+                                        src="dynamic"
+                                        alt="weather icon"
+                                        class="forecast-main-icon"
+                                    />
+                                </div>
+                                <div
+                                    class="forecast-infos forecast-primary-infos"
+                                >
+                                    <div
+                                        class="flex forecast-infos-top forecast-info-row"
+                                    >
+                                        <div class="forecast-info">
+                                            <img
+                                                src="assets/primary-info/thermometer.png"
+                                                alt="thermometer"
+                                                class="forecast-info-img"
+                                            />
+                                            <p class="forecast-info-data">
+                                                -23 C
+                                            </p>
+                                        </div>
+                                        <div class="forecast-info">
+                                            <img
+                                                src="assets/primary-info/snowing.png"
+                                                alt="snow cloud"
+                                                class="forecast-info-img"
+                                            />
+                                            <p class="forecast-info-data">
+                                                100%
+                                            </p>
+                                        </div>
+                                    </div>
+                                    <div
+                                        class="flex forecast-infos-bottom forecast-info-row"
+                                    >
+                                        <div class="forecast-info">
+                                            <img
+                                                src="assets/primary-info/feels-like.png"
+                                                alt="man next to thermometer"
+                                                class="forecast-info-img"
+                                            />
+                                            <p class="forecast-info-data">
+                                                -32 C
+                                            </p>
+                                        </div>
+                                        <div class="forecast-info">
+                                            <img
+                                                src="assets/primary-info/wind-gust.png"
+                                                alt="wind gust"
+                                                class="forecast-info-img"
+                                            />
+                                            <p class="forecast-info-data">
+                                                12kph
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div
+                                    class="forecast-infos forecast-secondary-infos"
+                                >
+                                    <div
+                                        class="forecast-infos-top forecast-info-row"
+                                    >
+                                        <div class="forecast-info">
+                                            <img
+                                                src="assets/secondary-info/humidity.png"
+                                                alt="rain drop"
+                                                class="forecast-info-img"
+                                            />
+                                            <p class="forecast-info-data">
+                                                100%
+                                            </p>
+                                        </div>
+                                        <div class="forecast-info">
+                                            <img
+                                                src="assets/secondary-info/rain-volume.png"
+                                                alt="ran drops"
+                                                class="forecast-info-img"
+                                            />
+                                            <p class="forecast-info-data">
+                                                33mm
+                                            </p>
+                                        </div>
+                                    </div>
+                                    <div
+                                        class="forecast-infos-bottom forecast-info-row"
+                                    >
+                                        <div class="forecast-info">
+                                            <img
+                                                src="assets/secondary-info/clouds.png"
+                                                alt="man next to thermometer"
+                                                class="forecast-info-img"
+                                            />
+                                            <p class="forecast-info-data">
+                                                100%
+                                            </p>
+                                        </div>
+                                        <div class="forecast-info">
+                                            <img
+                                                src="assets/secondary-info/barometer.png"
+                                                alt="barometer"
+                                                class="forecast-info-img"
+                                            />
+                                            <p class="forecast-info-data">
+                                                5bar
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- current forecast -->
+                    <div class="current">
+                        <p class="current-time">now:</p>
+                        <div class="flex">
+                            <div class="current-infos">
+                                <div class="current-infos-row">
+                                    <div class="current-info">
+                                        <img
+                                            src="assets/primary-info/thermometer.png"
+                                            alt="thermometer"
+                                            class="current-info-img"
+                                        />
+                                        <p class="current-info-data">-55 C</p>
+                                    </div>
+                                    <div class="current-info">
+                                        <img
+                                            src="assets/primary-info/feels-like.png"
+                                            alt="man next to thermometer"
+                                            class="current-info-img"
+                                        />
+                                        <p class="current-info-data">-100 C</p>
+                                    </div>
+                                    <div class="current-info">
+                                        <img
+                                            src="assets/primary-info/snowing.png"
+                                            alt="snowing cloud"
+                                            class="current-info-img"
+                                        />
+                                        <p class="current-info-data">100%</p>
+                                    </div>
+                                </div>
+                                <div class="current-infos-row">
+                                    <div class="current-info">
+                                        <img
+                                            src="assets/secondary-info/humidity.png"
+                                            alt="rain drop humidity"
+                                            class="current-info-img"
+                                        />
+                                        <p class="current-info-data">100%</p>
+                                    </div>
+                                    <div class="current-info">
+                                        <img
+                                            src="assets/secondary-info/snow-volume.png"
+                                            alt="snow flake"
+                                            class="current-info-img"
+                                        />
+                                        <p class="current-info-data">20mm</p>
+                                    </div>
+                                    <div class="current-info">
+                                        <img
+                                            src="assets/secondary-info/clouds.png"
+                                            alt="clouds"
+                                            class="current-info-img"
+                                        />
+                                        <p class="current-info-data">100%</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <p class="current-description">
+                                Today is going to be windy, tak your coat
+                            </p>
+                        </div>
+                        <img
+                            class="current-github-icon"
+                            src="assets/references/github.png"
+                            alt="github"
+                        />
+                    </div>
+                </div>
+            </main>
+        </div>
+    </body>
+</html>
