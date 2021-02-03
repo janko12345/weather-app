@@ -16,7 +16,7 @@
         <div class="wrapper">
             <!-- sidebar -->
             <div class="sidebar flex-between-column">
-                <div class="sidebar-close"></div>
+                <i class="fas fa-arrow-left sidebar-close"></i>
                 <div class="sidebar-header">
                     <div class="sidebar-header-text">
                         <p class="sidebar-title">Forecast for</p>
@@ -118,14 +118,16 @@
             </div>
             <!-- main -->
             <main class="main">
-                <div class="main-header">
-                    <div class="main-header-buttons">
+                <div class="header">
+                    <div class="header-buttons">
                         <img
                             src="assets/buttons/settings-img.png"
                             alt="gear icon"
-                            class="configure-icon"
+                            class="gear-icon"
                         />
-                        <div class="hamburger"></div>
+                        <div class="hamburger-button">
+                            <div class="hamburger"></div>
+                        </div>
                     </div>
                     <div class="brand">
                         <h1 class="brand-name">weather-watcher</h1>
@@ -136,30 +138,30 @@
                         />
                     </div>
                 </div>
-                <div class="sub-main">
-                    <div class="rise-set">
-                        <div class="sun-moon-toggler"></div>
-                        <div class="sun-info rise-set-info">
-                            <div class="sun-rise">
-                                <p class="rise-set-info-text">
-                                    sun rises 06:00
+                <div class="body">
+                    <div class="astronomy">
+                        <div class="astronomy-toggler"></div>
+                        <div class="astronomy-sun-info astronomy-info">
+                            <div class="astronomy-sun-rise">
+                                <p class="astronomy-info-text">
+                                    sun rises <span id="sun-rise">06:00</span>
                                 </p>
                             </div>
-                            <div class="sun-set">
-                                <p class="rise-set-info-text">
-                                    moon sets 19:00
+                            <div class="astronomy-sun-set">
+                                <p class="astronomy-info-text">
+                                    sun sets <span id="sun-set">19:00</span>
                                 </p>
                             </div>
                         </div>
-                        <div class="moon-info rise-set-info">
-                            <div class="moon-rise">
-                                <p class="rise-set-info-text">
-                                    moon rises 20:00
+                        <div class="astronomy-moon-info astronomy-info hide">
+                            <div class="astronomy-moon-rise">
+                                <p class="astronomy-info-text">
+                                    moon rises <span id="moon-rise">20:00</span>
                                 </p>
                             </div>
-                            <div class="moon-set">
-                                <p class="rise-set-info-text">
-                                    moon sets 05:00
+                            <div class="astronomy-moon-set">
+                                <p class="astronomy-info-text">
+                                    moon sets <span id="moon-set">05:00</span>
                                 </p>
                             </div>
                         </div>
