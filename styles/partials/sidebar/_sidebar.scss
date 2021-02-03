@@ -8,9 +8,13 @@
     padding-top: MIN(1vh, 20px);
     transform: translateX(-100%);
     transition: transform 1s ease-in-out;
+    z-index: 800;
     &-close {
         position: absolute;
         right: 10px;
         top: 10px;
+    }
+    &-show {
+        transform: translateX(0);
     }
 }

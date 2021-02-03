@@ -1,0 +1,50 @@
+$burger-width: 25px;
+
+.hamburger-button {
+    cursor: pointer;
+    position: absolute;
+    height: calc(3px * 5);
+    @include flex(center, center);
+    transform: translateX(calc(100% + 12px));
+    right: 7px;
+    top: 7px;
+    transition: transform 500ms ease-in-out;
+    &-active {
+        transform: translateX(0);
+        .hamburger {
+            &::before,
+            &::after {
+                width: calc(#{$burger-width} / 2 + #{$burger-width} / 10);
+            }
+            &::before {
+                transform: translate(-0%, -200%) rotate(-45deg);
+            }
+            &::after {
+                transform: translate(-0%, 200%) rotate(45deg);
+            }
+        }
+    }
+}
+
+.hamburger {
+    width: $burger-width;
+    &,
+    &::before,
+    &::after {
+        height: 3px;
+        width: $burger-width;
+        background-color: #000;
+        transition: transform 500ms ease-in-out, width 500ms ease-in-out;
+    }
+    &::before,
+    &::after {
+        content: "";
+        position: absolute;
+    }
+    &::before {
+        transform: translateY(-200%);
+    }
+    &::after {
+        transform: translateY(200%);
+    }
+}
