@@ -14,88 +14,108 @@
 
     <body>
         <div class="wrapper">
-            <!-- nav -->
-            <nav class="sidebar flex-column-between">
+            <!-- sidebar -->
+            <div class="sidebar flex-between-column">
+                <div class="sidebar-close"></div>
                 <div class="sidebar-header">
-                    <h2 class="sidebar-title">Forecast for</h2>
-                    <h3 class="sidebar-city">Dolná Streda</h3>
+                    <div class="sidebar-header-text">
+                        <p class="sidebar-title">Forecast for</p>
+                        <h3 class="sidebar-city">Dolná Streda</h3>
+                    </div>
                     <div class="sidebar-searchbar">
                         <input type="text" class="sidebar-search" />
-                        <img
-                            src="assets/decoratives/search-icon.png"
-                            alt="magnifying glass"
-                            class="sidebar-search-img"
-                        />
+                        <i class="fas fa-search sidebar-search-img"></i>
                     </div>
                     <div class="fetch-response">
                         <img
                             src="assets/indicators/loading.png"
                             alt="loading..."
-                            class="loading"
+                            class="sidebar-loading"
                         />
                         <p>city not found</p>
                     </div>
                 </div>
                 <!-- days -->
-                <div class="days">
-                    <div class="day today">
-                        <div class="day-top">
-                            <img src="dynamic" alt="dynamic" class="day-img" />
-                            <p class="day-temp">
-                                <span class="day-temp-min">-15</span>
-                                /
-                                <span class="day-temp-max">15</span
-                                ><span class="day-temp-unit">C</span>
-                            </p>
-                        </div>
-                        <div class="day-bottom">
-                            <p class="day-which">wednesday</p>
-                            <p class="day-weather">snowy</p>
+                <div class="sidebar-days">
+                    <div class="sidebar-today">
+                        <h3 class="sidebar-today-title">today</h3>
+                        <div class="sidebar-day">
+                            <div class="sidebar-day-top">
+                                <img
+                                    src="dynamic"
+                                    alt="dynamic"
+                                    class="sidebar-day-img"
+                                />
+                                <p class="sidebar-day-temp">
+                                    <span class="sidebar-day-temp-min">
+                                        -15</span
+                                    >
+                                    /
+                                    <span class="sidebar-day-temp-max">15</span>
+                                    <span class="sidebar-day-temp-unit"
+                                        >°C</span
+                                    >
+                                </p>
+                            </div>
+                            <div class="sidebar-day-bottom">
+                                <p class="sidebar-day-which">wednesday</p>
+                                <p class="sidebar-day-weather">snowy</p>
+                            </div>
                         </div>
                     </div>
-                    <div class="next-days">
-                        <h4 class="next-days-title">next 2 days forecast</h4>
-                        <div class="day tommorow">
-                            <div class="day-top">
+                    <div class="sidebar-next-days">
+                        <h4 class="sidebar-next-days-title">
+                            next 2 days forecast
+                        </h4>
+                        <div class="sidebar-day sidebar-tommorow">
+                            <div class="sidebar-day-top">
                                 <img
                                     src="dynamic"
                                     alt="dynamic"
-                                    class="day-img"
+                                    class="sidebar-day-img"
                                 />
-                                <p class="day-temp">
-                                    <span class="day-temp-min">-15</span>
+                                <p class="sidebar-day-temp">
+                                    <span class="sidebar-day-temp-min"
+                                        >-15</span
+                                    >
                                     /
-                                    <span class="day-temp-max">15</span
-                                    ><span class="day-temp-unit">C</span>
+                                    <span class="sidebar-day-temp-max">15</span
+                                    ><span class="sidebar-day-temp-unit"
+                                        >°C</span
+                                    >
                                 </p>
                             </div>
-                            <div class="day-bottom">
-                                <p class="day-which">wednesday</p>
-                                <p class="day-weather">snowy</p>
+                            <div class="sidebar-day-bottom">
+                                <p class="sidebar-day-which">wednesday</p>
+                                <p class="sidebar-day-weather">snowy</p>
                             </div>
                         </div>
-                        <div class="day day-after-tommorow">
-                            <div class="day-top">
+                        <div class="sidebar-day sidebar-day-after-tommorow">
+                            <div class="sidebar-day-top">
                                 <img
                                     src="dynamic"
                                     alt="dynamic"
-                                    class="day-img"
+                                    class="sidebar-day-img"
                                 />
-                                <p class="day-temp">
-                                    <span class="day-temp-min">-15</span>
+                                <p class="sidebar-day-temp">
+                                    <span class="sidebar-day-temp-min"
+                                        >-15</span
+                                    >
                                     /
-                                    <span class="day-temp-max">15</span
-                                    ><span class="day-temp-unit">C</span>
+                                    <span class="sidebar-day-temp-max">15</span
+                                    ><span class="sidebar-day-temp-unit"
+                                        >°C</span
+                                    >
                                 </p>
                             </div>
-                            <div class="day-bottom">
-                                <p class="day-which">wednesday</p>
-                                <p class="day-weather">snowy</p>
+                            <div class="sidebar-day-bottom">
+                                <p class="sidebar-day-which">wednesday</p>
+                                <p class="sidebar-day-weather">snowy</p>
                             </div>
                         </div>
                     </div>
                 </div>
-            </nav>
+            </div>
             <!-- main -->
             <main class="main">
                 <div class="main-header">
@@ -346,5 +366,10 @@
                 </div>
             </main>
         </div>
+
+        <script
+            src="https://kit.fontawesome.com/129caeb1d2.js"
+            crossorigin="anonymous"
+        ></script>
     </body>
 </html>

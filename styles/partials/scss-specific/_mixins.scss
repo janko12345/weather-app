@@ -1,0 +1,29 @@
+@mixin flex(
+    $justify: stretch,
+    $align: stretch,
+    $dir: row,
+    $wrap: nowrap,
+    $gap: 0
+) {
+    display: flex;
+    justify-content: $justify;
+    align-items: $align;
+    flex-flow: $dir $wrap;
+    gap: $gap;
+}
+
+@mixin centerByPosition($pos, $dir) {
+    position: $pos;
+
+    @if ($dir == "x") {
+        left: 50%;
+        transform: translateX(-50%);
+    } @else if ($dir == "y") {
+        top: 50%;
+        transform: translateY(-50%);
+    } @else if($dir == "xy") {
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%);
+    }
+}

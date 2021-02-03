@@ -1,1 +1,10 @@
+@import "./partials/scss-specific/variables";
+@import "./partials/scss-specific/functions";
+@import "./partials/scss-specific/mixins";
 @import "./partials/resets";
+
+@import "./partials/sidebar/sidebar";
+@import "./partials/sidebar/sidebar-header";
+@import "./partials/sidebar/sidebar-days";
+
+@import "./partials/utils";

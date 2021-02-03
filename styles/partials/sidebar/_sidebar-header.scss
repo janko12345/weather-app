@@ -1,0 +1,47 @@
+.sidebar {
+    &-header {
+        padding: 0 1em;
+        text-align: center;
+        &-text {
+            margin-bottom: 0.7em;
+        }
+    }
+    &-title {
+        font-size: 1.2rem;
+        font-weight: bold;
+    }
+    &-city {
+        font-size: 1.5rem;
+        max-width: 100%;
+    }
+    &-searchbar {
+        max-width: 200px;
+        margin: 0 auto;
+        position: relative;
+        padding: 0.3rem 0.5rem;
+        padding-right: 1.8rem;
+        margin-bottom: 1rem;
+        border-radius: 500px;
+        background-color: #fff;
+    }
+    &-search {
+        font-size: 0.85rem;
+        width: 100%;
+        border: none;
+        background-color: transparent;
+    }
+    &-search-img {
+        @include centerByPosition(absolute, y);
+        right: 0.5rem;
+        font-size: 1.1rem;
+        top: 45%;
+    }
+    &-loading {
+        display: block;
+        width: 20%;
+        margin: 0 auto;
+    }
+    .fetch-response {
+        display: none;
+    }
+}

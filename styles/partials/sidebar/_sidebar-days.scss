@@ -1,0 +1,45 @@
+.sidebar {
+    &-days {
+        @include flex(space-between, $dir: column);
+    }
+    &-day {
+        font-size: 1.2rem;
+        background-color: getColor(bg-secondary);
+        padding: 0.7em;
+        margin-bottom: 1.5rem;
+        &:hover {
+            cursor: pointer;
+        }
+        &-top,
+        &-bottom {
+            @include flex(space-between);
+            vertical-align: bottom;
+        }
+        &-top {
+            margin-bottom: 0.5em;
+        }
+        &-temp {
+            @include flex();
+            span {
+                padding: 0 0.1em;
+            }
+        }
+    }
+    &-today {
+        margin-bottom: 4rem;
+
+        &-title {
+            font-size: 1.5rem;
+            text-align: center;
+            margin-bottom: 0.7em;
+        }
+    }
+
+    &-next-days {
+        &-title {
+            font-size: 1.5rem;
+            margin-bottom: 1.2em;
+            text-align: center;
+        }
+    }
+}
