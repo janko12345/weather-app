@@ -1,9 +1,8 @@
+.current-wrapper {
+    padding: 0 calc(#{$github-width} + 13px) 1em 0.75em;
+}
 .current {
-    $github-width: 40px;
     @include flex();
-    position: relative;
-    padding-right: calc(#{$github-width} + 13px);
-    padding-bottom: 1em;
     &-time {
         font-size: 1.3rem;
         font-family: sans-serif;
@@ -33,13 +32,5 @@
     &-description {
         font-size: 1.3rem;
         margin-left: MIN(1em, 40px);
-    }
-    &-github {
-        position: absolute;
-        right: 10px;
-        bottom: 10px;
-        &-icon {
-            width: $github-width;
-        }
     }
 }

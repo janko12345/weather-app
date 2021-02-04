@@ -1,0 +1,8 @@
+.github {
+    position: fixed;
+    right: 10px;
+    bottom: 10px;
+    &-icon {
+        width: $github-width;
+    }
+}

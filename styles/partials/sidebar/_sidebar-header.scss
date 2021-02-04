@@ -37,11 +37,39 @@
         top: 45%;
     }
     &-loading {
-        display: block;
+        display: none;
         width: 20%;
         margin: 0 auto;
     }
-    .fetch-response {
-        display: none;
+}
+
+.not-found {
+    font-size: 1rem;
+    color: #a00;
+    font-weight: bold;
+    font-family: sans-serif;
+    display: none;
+}
+
+.fetch-response {
+    &-in-process {
+        .sidebar-loading {
+            display: block;
+            animation: loading 2s linear infinite;
+        }
+    }
+    &-failed {
+        .not-found {
+            display: block;
+        }
+    }
+}
+
+@keyframes loading {
+    from {
+        transform: rotate(0);
+    }
+    to {
+        transform: rotate(-360deg);
     }
 }
