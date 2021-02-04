@@ -147,7 +147,8 @@
                             <div class="astronomy-sun-info astronomy-info">
                                 <div class="astronomy-sun-rise">
                                     <p class="astronomy-info-text">
-                                        sun rises <span id="sun-rise">06:00</span>
+                                        sun rises
+                                        <span id="sun-rise">06:00</span>
                                     </p>
                                 </div>
                                 <div class="astronomy-sun-set">
@@ -156,15 +157,19 @@
                                     </p>
                                 </div>
                             </div>
-                            <div class="astronomy-moon-info astronomy-info hide">
+                            <div
+                                class="astronomy-moon-info astronomy-info hide"
+                            >
                                 <div class="astronomy-moon-rise">
                                     <p class="astronomy-info-text">
-                                        moon rises <span id="moon-rise">20:00</span>
+                                        moon rises
+                                        <span id="moon-rise">20:00</span>
                                     </p>
                                 </div>
                                 <div class="astronomy-moon-set">
                                     <p class="astronomy-info-text">
-                                        moon sets <span id="moon-set">05:00</span>
+                                        moon sets
+                                        <span id="moon-set">05:00</span>
                                     </p>
                                 </div>
                             </div>
@@ -175,12 +180,12 @@
                             <img
                                 src="assets/buttons/hour-dropdown.png"
                                 alt="toggler"
-                                class="forecasts-drowpdown"
+                                class="forecasts-buttons-dropdown forecasts-buttons-img"
                             />
                             <img
                                 src="assets/buttons/switch-info.png"
                                 alt="swap arrows"
-                                class="forecasts-change-info"
+                                class="forecasts-buttons-change-info forecasts-buttons-img"
                             />
                         </div>
                         <!-- hour forecasts -->
@@ -189,7 +194,7 @@
                                 <div class="forecast-header">
                                     <p class="forecast-hour">15:30</p>
                                     <img
-                                        src="dynamic"
+                                        src="assets/primary-info/raining.png"
                                         alt="weather icon"
                                         class="forecast-main-icon"
                                     />
@@ -198,7 +203,7 @@
                                     class="forecast-infos forecast-primary-infos"
                                 >
                                     <div
-                                        class="flex forecast-infos-top forecast-info-row"
+                                        class="forecast-infos-top forecast-info-column"
                                     >
                                         <div class="forecast-info">
                                             <img
@@ -212,26 +217,26 @@
                                         </div>
                                         <div class="forecast-info">
                                             <img
-                                                src="assets/primary-info/snowing.png"
-                                                alt="snow cloud"
-                                                class="forecast-info-img"
-                                            />
-                                            <p class="forecast-info-data">
-                                                100%
-                                            </p>
-                                        </div>
-                                    </div>
-                                    <div
-                                        class="flex forecast-infos-bottom forecast-info-row"
-                                    >
-                                        <div class="forecast-info">
-                                            <img
                                                 src="assets/primary-info/feels-like.png"
                                                 alt="man next to thermometer"
                                                 class="forecast-info-img"
                                             />
                                             <p class="forecast-info-data">
                                                 -32 C
+                                            </p>
+                                        </div>
+                                    </div>
+                                    <div
+                                        class="forecast-infos-bottom forecast-info-column"
+                                    >
+                                        <div class="forecast-info">
+                                            <img
+                                                src="assets/primary-info/snowing.png"
+                                                alt="snow cloud"
+                                                class="forecast-info-img"
+                                            />
+                                            <p class="forecast-info-data">
+                                                100%
                                             </p>
                                         </div>
                                         <div class="forecast-info">
@@ -247,10 +252,10 @@
                                     </div>
                                 </div>
                                 <div
-                                    class="forecast-infos forecast-secondary-infos"
+                                    class="forecast-infos forecast-secondary-infos hide"
                                 >
                                     <div
-                                        class="forecast-infos-top forecast-info-row"
+                                        class="forecast-infos-top forecast-info-column"
                                     >
                                         <div class="forecast-info">
                                             <img
@@ -264,20 +269,6 @@
                                         </div>
                                         <div class="forecast-info">
                                             <img
-                                                src="assets/secondary-info/rain-volume.png"
-                                                alt="ran drops"
-                                                class="forecast-info-img"
-                                            />
-                                            <p class="forecast-info-data">
-                                                33mm
-                                            </p>
-                                        </div>
-                                    </div>
-                                    <div
-                                        class="forecast-infos-bottom forecast-info-row"
-                                    >
-                                        <div class="forecast-info">
-                                            <img
                                                 src="assets/secondary-info/clouds.png"
                                                 alt="man next to thermometer"
                                                 class="forecast-info-img"
@@ -286,6 +277,21 @@
                                                 100%
                                             </p>
                                         </div>
+                                    </div>
+                                    <div
+                                        class="forecast-infos-bottom forecast-info-column"
+                                    >
+                                        <div class="forecast-info">
+                                            <img
+                                                src="assets/secondary-info/rain-volume.png"
+                                                alt="ran drops"
+                                                class="forecast-info-img"
+                                            />
+                                            <p class="forecast-info-data">
+                                                333mm
+                                            </p>
+                                        </div>
+
                                         <div class="forecast-info">
                                             <img
                                                 src="assets/secondary-info/barometer.png"
@@ -377,6 +383,7 @@
             src="https://kit.fontawesome.com/129caeb1d2.js"
             crossorigin="anonymous"
         ></script>
+        <script src="js/createContent.js"></script>
         <script src="js/test-animations.js"></script>
     </body>
 </html>

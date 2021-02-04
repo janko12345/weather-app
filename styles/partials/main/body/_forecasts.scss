@@ -1,0 +1,86 @@
+.forecasts-wrapper {
+    position: relative;
+    overflow: hidden;
+    margin-bottom: 5rem;
+}
+
+.forecasts-buttons {
+    &-img {
+        cursor: pointer;
+        width: 15px;
+        display: inline-block;
+        margin-left: 5px;
+    }
+    &-change-info {
+        &-rotate-180 {
+            animation: spin180 200ms ease-in-out;
+        }
+        &-rotate-360 {
+            animation: spin360 200ms ease-in-out;
+        }
+    }
+    &-dropdown {
+        transition: transform 400ms ease-in-out;
+        &-active {
+            transform: rotateX(180deg);
+        }
+    }
+}
+
+.forecasts {
+    @include flex();
+    overflow: auto;
+}
+
+.forecast {
+    @include flex(space-between, center, $dir: column);
+    flex-shrink: 0;
+    border-right: 2px solid;
+    min-width: 100px;
+    min-height: 150px;
+    text-align: center;
+    &:last-child {
+        border: none;
+    }
+    &-hour {
+        margin-bottom: 0.2em;
+    }
+    &-main-icon {
+        width: 37px;
+    }
+    &-infos {
+        @include flex();
+    }
+    &-info-column {
+        @include flex(space-between, center, $dir: column);
+        & + & {
+            margin-left: 10px;
+        }
+    }
+
+    &-info-img {
+        width: 23px;
+    }
+    &-info-data {
+        font-size: 0.9rem;
+    }
+}
+
+// those keyframes were needed to spin always to the right, with transitions it bugged
+@keyframes spin180 {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(180deg);
+    }
+}
+
+@keyframes spin360 {
+    from {
+        transform: rotate(180deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}

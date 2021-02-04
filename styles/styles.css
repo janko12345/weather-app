@@ -312,6 +312,7 @@ img {
 .astronomy-wrapper {
   position: relative;
   min-height: 17px;
+  margin-bottom: 5px;
 }
 
 .astronomy-visibility-toggler {
@@ -400,6 +401,184 @@ img {
 .astronomy-moon-set {
   background: url("../assets/decoratives/moonset.png") center;
   background-size: cover;
+}
+
+.forecasts-wrapper {
+  position: relative;
+  overflow: hidden;
+  margin-bottom: 5rem;
+}
+
+.forecasts-buttons-img {
+  cursor: pointer;
+  width: 15px;
+  display: inline-block;
+  margin-left: 5px;
+}
+
+.forecasts-buttons-change-info-rotate-180 {
+  -webkit-animation: spin180 200ms ease-in-out;
+          animation: spin180 200ms ease-in-out;
+}
+
+.forecasts-buttons-change-info-rotate-360 {
+  -webkit-animation: spin360 200ms ease-in-out;
+          animation: spin360 200ms ease-in-out;
+}
+
+.forecasts-buttons-dropdown {
+  -webkit-transition: -webkit-transform 400ms ease-in-out;
+  transition: -webkit-transform 400ms ease-in-out;
+  transition: transform 400ms ease-in-out;
+  transition: transform 400ms ease-in-out, -webkit-transform 400ms ease-in-out;
+}
+
+.forecasts-buttons-dropdown-active {
+  -webkit-transform: rotateX(180deg);
+          transform: rotateX(180deg);
+}
+
+.forecasts {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: stretch;
+      -ms-flex-pack: stretch;
+          justify-content: stretch;
+  -webkit-box-align: stretch;
+      -ms-flex-align: stretch;
+          align-items: stretch;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-flow: row nowrap;
+          flex-flow: row nowrap;
+  gap: 0;
+  overflow: auto;
+}
+
+.forecast {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-flow: column nowrap;
+          flex-flow: column nowrap;
+  gap: 0;
+  -ms-flex-negative: 0;
+      flex-shrink: 0;
+  border-right: 2px solid;
+  min-width: 100px;
+  min-height: 150px;
+  text-align: center;
+}
+
+.forecast:last-child {
+  border: none;
+}
+
+.forecast-hour {
+  margin-bottom: 0.2em;
+}
+
+.forecast-main-icon {
+  width: 37px;
+}
+
+.forecast-infos {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: stretch;
+      -ms-flex-pack: stretch;
+          justify-content: stretch;
+  -webkit-box-align: stretch;
+      -ms-flex-align: stretch;
+          align-items: stretch;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-flow: row nowrap;
+          flex-flow: row nowrap;
+  gap: 0;
+}
+
+.forecast-info-column {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-flow: column nowrap;
+          flex-flow: column nowrap;
+  gap: 0;
+}
+
+.forecast-info-column + .forecast-info-column {
+  margin-left: 10px;
+}
+
+.forecast-info-img {
+  width: 23px;
+}
+
+.forecast-info-data {
+  font-size: 0.9rem;
+}
+
+@-webkit-keyframes spin180 {
+  from {
+    -webkit-transform: rotate(0deg);
+            transform: rotate(0deg);
+  }
+  to {
+    -webkit-transform: rotate(180deg);
+            transform: rotate(180deg);
+  }
+}
+
+@keyframes spin180 {
+  from {
+    -webkit-transform: rotate(0deg);
+            transform: rotate(0deg);
+  }
+  to {
+    -webkit-transform: rotate(180deg);
+            transform: rotate(180deg);
+  }
+}
+
+@-webkit-keyframes spin360 {
+  from {
+    -webkit-transform: rotate(180deg);
+            transform: rotate(180deg);
+  }
+  to {
+    -webkit-transform: rotate(360deg);
+            transform: rotate(360deg);
+  }
+}
+
+@keyframes spin360 {
+  from {
+    -webkit-transform: rotate(180deg);
+            transform: rotate(180deg);
+  }
+  to {
+    -webkit-transform: rotate(360deg);
+            transform: rotate(360deg);
+  }
 }
 
 .flex-between-column {
