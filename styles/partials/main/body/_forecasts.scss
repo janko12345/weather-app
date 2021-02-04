@@ -1,7 +1,6 @@
 .forecasts-wrapper {
-    position: relative;
     overflow: hidden;
-    margin-bottom: 5rem;
+    margin-bottom: 40px;
 }
 
 .forecasts-buttons {
@@ -24,6 +23,10 @@
         &-active {
             transform: rotateX(180deg);
         }
+    }
+    &-legend {
+        float: right;
+        margin-right: 5px;
     }
 }
 

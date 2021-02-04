@@ -1,0 +1,45 @@
+.current {
+    $github-width: 40px;
+    @include flex();
+    position: relative;
+    padding-right: calc(#{$github-width} + 13px);
+    padding-bottom: 1em;
+    &-time {
+        font-size: 1.3rem;
+        font-family: sans-serif;
+        font-weight: bold;
+        margin-bottom: 0.7em;
+    }
+    &-infos-row {
+        @include flex(space-evenly, flex-end);
+        & + & {
+            margin-top: 13px;
+        }
+    }
+    &-info {
+        text-align: center;
+        & + & {
+            margin-left: 9px;
+        }
+    }
+    &-info-img {
+        width: 30px;
+        height: 30px;
+    }
+    &-info-data {
+        white-space: nowrap;
+        font-size: 0.9rem;
+    }
+    &-description {
+        font-size: 1.3rem;
+        margin-left: MIN(1em, 40px);
+    }
+    &-github {
+        position: absolute;
+        right: 10px;
+        bottom: 10px;
+        &-icon {
+            width: $github-width;
+        }
+    }
+}

@@ -404,9 +404,8 @@ img {
 }
 
 .forecasts-wrapper {
-  position: relative;
   overflow: hidden;
-  margin-bottom: 5rem;
+  margin-bottom: 40px;
 }
 
 .forecasts-buttons-img {
@@ -436,6 +435,11 @@ img {
 .forecasts-buttons-dropdown-active {
   -webkit-transform: rotateX(180deg);
           transform: rotateX(180deg);
+}
+
+.forecasts-buttons-legend {
+  float: right;
+  margin-right: 5px;
 }
 
 .forecasts {
@@ -579,6 +583,87 @@ img {
     -webkit-transform: rotate(360deg);
             transform: rotate(360deg);
   }
+}
+
+.current {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: stretch;
+      -ms-flex-pack: stretch;
+          justify-content: stretch;
+  -webkit-box-align: stretch;
+      -ms-flex-align: stretch;
+          align-items: stretch;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-flow: row nowrap;
+          flex-flow: row nowrap;
+  gap: 0;
+  position: relative;
+  padding-right: calc(40px + 13px);
+  padding-bottom: 1em;
+}
+
+.current-time {
+  font-size: 1.3rem;
+  font-family: sans-serif;
+  font-weight: bold;
+  margin-bottom: 0.7em;
+}
+
+.current-infos-row {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: space-evenly;
+      -ms-flex-pack: space-evenly;
+          justify-content: space-evenly;
+  -webkit-box-align: end;
+      -ms-flex-align: end;
+          align-items: flex-end;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-flow: row nowrap;
+          flex-flow: row nowrap;
+  gap: 0;
+}
+
+.current-infos-row + .current-infos-row {
+  margin-top: 13px;
+}
+
+.current-info {
+  text-align: center;
+}
+
+.current-info + .current-info {
+  margin-left: 9px;
+}
+
+.current-info-img {
+  width: 30px;
+  height: 30px;
+}
+
+.current-info-data {
+  white-space: nowrap;
+  font-size: 0.9rem;
+}
+
+.current-description {
+  font-size: 1.3rem;
+  margin-left: MIN(1em, 40px);
+}
+
+.current-github {
+  position: absolute;
+  right: 10px;
+  bottom: 10px;
+}
+
+.current-github-icon {
+  width: 40px;
 }
 
 .flex-between-column {
