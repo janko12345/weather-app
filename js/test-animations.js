@@ -16,6 +16,8 @@ let secondaryInfos = [...main.querySelectorAll(".forecast-secondary-infos")];
 let primaryInfos = [...main.querySelectorAll(".forecast-primary-infos")];
 let dropdown = main.querySelector(".forecasts-buttons-dropdown-img");
 let dropdownMenu = main.querySelector(".forecasts-buttons-dropdown-menu");
+let legendBtn = main.querySelector(".forecasts-buttons-legend");
+let legendMod = document.querySelector(".legend-module");
 
 let failedTO;
 search.addEventListener("keyup", (e) => {
@@ -95,4 +97,13 @@ dropdownMenu.addEventListener("click", (e) => {
         e.target.classList.add("forecasts-buttons-dropdown-item-active");
         dropdownMenu.classList.remove("forecasts-buttons-dropdown-menu-active");
     }
+});
+
+legendBtn.addEventListener("click", (e) => {
+    legendMod.classList.add("legend-module-active");
+});
+
+legendMod.addEventListener("click", (e) => {
+    if (e.target.closest(".legend")) return;
+    legendMod.classList.remove("legend-module-active");
 });

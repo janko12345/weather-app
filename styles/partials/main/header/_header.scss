@@ -57,4 +57,23 @@
             color: #0f0;
         }
     }
+    [data-key] {
+        display: inline-block;
+        margin-right: 0.4em;
+    }
+    [data-value] {
+        cursor: pointer;
+        display: inline-block;
+        margin-right: 0.2em;
+        & ~ [data-value] {
+            margin-right: 0;
+            margin-left: 0.2em;
+        }
+    }
+    [data-value]:not(.config-data-active) {
+        color: #aaa;
+        &:hover {
+            color: #fff;
+        }
+    }
 }

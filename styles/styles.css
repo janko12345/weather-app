@@ -295,6 +295,10 @@ img {
   text-align: center;
 }
 
+.main {
+  min-height: 100vh;
+}
+
 .header {
   background-color: #89afd1;
   position: fixed;
@@ -381,6 +385,30 @@ img {
   color: #0f0;
 }
 
+.config [data-key] {
+  display: inline-block;
+  margin-right: 0.4em;
+}
+
+.config [data-value] {
+  cursor: pointer;
+  display: inline-block;
+  margin-right: 0.2em;
+}
+
+.config [data-value] ~ [data-value] {
+  margin-right: 0;
+  margin-left: 0.2em;
+}
+
+.config [data-value]:not(.config-data-active) {
+  color: #aaa;
+}
+
+.config [data-value]:not(.config-data-active):hover {
+  color: #fff;
+}
+
 .github {
   position: fixed;
   right: 10px;
@@ -394,7 +422,7 @@ img {
 .astronomy-wrapper {
   position: relative;
   min-height: 17px;
-  margin-bottom: 5px;
+  margin-bottom: 10px;
 }
 
 .astronomy-visibility-toggler {
@@ -403,12 +431,10 @@ img {
   top: 5px;
   right: 5px;
   z-index: 2;
-  -webkit-transition: -webkit-transform 300ms linear;
-  transition: -webkit-transform 300ms linear;
-  transition: transform 300ms linear;
-  transition: transform 300ms linear, -webkit-transform 300ms linear;
-  -webkit-transition: color 100ms linear;
-  transition: color 100ms linear;
+  -webkit-transition: color 200ms linear, -webkit-transform 200ms linear;
+  transition: color 200ms linear, -webkit-transform 200ms linear;
+  transition: transform 200ms linear, color 200ms linear;
+  transition: transform 200ms linear, color 200ms linear, -webkit-transform 200ms linear;
 }
 
 .astronomy-visibility-toggler-rolled-up {
@@ -469,6 +495,7 @@ img {
   font-family: sans-serif;
   font-size: 0.9rem;
   text-align: center;
+  text-shadow: 0 0 1px #fff;
 }
 
 .astronomy-info-pair {
@@ -493,29 +520,27 @@ img {
   transition: transform 350ms ease-in-out, -webkit-transform 350ms ease-in-out;
 }
 
-.astronomy-info-sun-rise {
-  background: url("../assets/decoratives/sunrise.png") center;
+.astronomy-info-sun-rise, .astronomy-info-sun-set, .astronomy-info-moon-rise, .astronomy-info-moon-set {
   background-size: cover;
+  background-position: center bottom;
+}
+
+.astronomy-info-sun-rise {
+  background-image: url("../assets/decoratives/sunrise.png");
 }
 
 .astronomy-info-sun-set {
-  background: url("../assets/decoratives/sunset.png") center;
-  background-size: cover;
+  background-image: url("../assets/decoratives/sunset.png");
+  background-position-y: 135px;
 }
 
 .astronomy-info-moon-rise {
-  background: url("../assets/decoratives/moonrise.png") center;
-  background-size: cover;
+  background-image: url("../assets/decoratives/moonrise.png");
+  background-position-y: 100px;
 }
 
 .astronomy-info-moon-set {
-  background: url("../assets/decoratives/moonset.png") center;
-  background-size: cover;
-}
-
-.forecasts-wrapper {
-  overflow: hidden;
-  margin-bottom: 40px;
+  background-image: url("../assets/decoratives/moonset.png");
 }
 
 .forecasts-buttons {
@@ -536,6 +561,7 @@ img {
           flex-flow: row nowrap;
   gap: 0;
   padding: 0 var(--buttons-pad);
+  margin-bottom: 5px;
 }
 
 .forecasts-buttons-button {
@@ -571,11 +597,12 @@ img {
 }
 
 .forecasts-buttons-dropdown-menu {
+  font-family: sans-serif;
   position: absolute;
   top: calc(var(--img-width) - 7px);
   left: 0;
   background-color: #000;
-  color: #fff;
+  color: #aaa;
   white-space: nowrap;
   border-radius: 1rem;
   min-width: 100px;
@@ -601,9 +628,10 @@ img {
   margin-top: 0.3rem;
 }
 
-.forecasts-buttons-dropdown-item-active {
+.forecasts-buttons-dropdown-item-active, .forecasts-buttons-dropdown-item:hover {
   font-weight: bold;
-  font-size: 1.1rem;
+  color: #fff;
+  padding-left: 0.2em;
 }
 
 .forecasts-buttons-switch-img-rotate-180 {
@@ -614,6 +642,131 @@ img {
 .forecasts-buttons-switch-img-rotate-360 {
   -webkit-animation: spin360 200ms ease-in-out;
           animation: spin360 200ms ease-in-out;
+}
+
+.forecasts-buttons-legend > p {
+  font-weight: bold;
+  font-family: sans-serif;
+}
+
+@-webkit-keyframes spin180 {
+  from {
+    -webkit-transform: rotate(0deg);
+            transform: rotate(0deg);
+  }
+  to {
+    -webkit-transform: rotate(180deg);
+            transform: rotate(180deg);
+  }
+}
+
+@keyframes spin180 {
+  from {
+    -webkit-transform: rotate(0deg);
+            transform: rotate(0deg);
+  }
+  to {
+    -webkit-transform: rotate(180deg);
+            transform: rotate(180deg);
+  }
+}
+
+@-webkit-keyframes spin360 {
+  from {
+    -webkit-transform: rotate(180deg);
+            transform: rotate(180deg);
+  }
+  to {
+    -webkit-transform: rotate(360deg);
+            transform: rotate(360deg);
+  }
+}
+
+@keyframes spin360 {
+  from {
+    -webkit-transform: rotate(180deg);
+            transform: rotate(180deg);
+  }
+  to {
+    -webkit-transform: rotate(360deg);
+            transform: rotate(360deg);
+  }
+}
+
+.legend-module {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 999;
+  background-color: #0008;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-flow: row nowrap;
+          flex-flow: row nowrap;
+  gap: 0;
+  display: none;
+}
+
+.legend-module-active {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.legend {
+  font-size: 1rem;
+  color: #fff;
+  font-family: sans-serif;
+  background-color: #000;
+  border-radius: 50px;
+  padding: 1rem 2rem;
+}
+
+.legend-row {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: stretch;
+      -ms-flex-pack: stretch;
+          justify-content: stretch;
+  -webkit-box-align: stretch;
+      -ms-flex-align: stretch;
+          align-items: stretch;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-flow: row nowrap;
+          flex-flow: row nowrap;
+  gap: 0;
+  min-height: 30px;
+}
+
+.legend-imgs {
+  -webkit-filter: invert(100%);
+          filter: invert(100%);
+  margin-right: 1rem;
+}
+
+.legend-img {
+  width: auto;
+  height: 25px;
+  display: inline-block;
+  margin-right: 0.5rem;
+}
+
+.forecasts-wrapper {
+  overflow: hidden;
+  margin-bottom: 40px;
 }
 
 .forecasts {
@@ -713,50 +866,6 @@ img {
 
 .forecast-info-data {
   font-size: 0.9rem;
-}
-
-@-webkit-keyframes spin180 {
-  from {
-    -webkit-transform: rotate(0deg);
-            transform: rotate(0deg);
-  }
-  to {
-    -webkit-transform: rotate(180deg);
-            transform: rotate(180deg);
-  }
-}
-
-@keyframes spin180 {
-  from {
-    -webkit-transform: rotate(0deg);
-            transform: rotate(0deg);
-  }
-  to {
-    -webkit-transform: rotate(180deg);
-            transform: rotate(180deg);
-  }
-}
-
-@-webkit-keyframes spin360 {
-  from {
-    -webkit-transform: rotate(180deg);
-            transform: rotate(180deg);
-  }
-  to {
-    -webkit-transform: rotate(360deg);
-            transform: rotate(360deg);
-  }
-}
-
-@keyframes spin360 {
-  from {
-    -webkit-transform: rotate(180deg);
-            transform: rotate(180deg);
-  }
-  to {
-    -webkit-transform: rotate(360deg);
-            transform: rotate(360deg);
-  }
 }
 
 .current-wrapper {

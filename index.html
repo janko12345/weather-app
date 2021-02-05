@@ -13,6 +13,99 @@
     </head>
 
     <body>
+        <div class="legend-module">
+            <div class="legend">
+                <div class="legend-row">
+                    <div class="legend-imgs">
+                        <img
+                            class="legend-img"
+                            src="assets/primary-info/thermometer.png"
+                            alt="thermometer"
+                        />
+                    </div>
+                    <p class="legend-text">temperature</p>
+                </div>
+
+                <div class="legend-row">
+                    <div class="legend-imgs">
+                        <img
+                            src="assets/primary-info/feels-like.png"
+                            alt="thermometer and human"
+                            class="legend-img"
+                        />
+                    </div>
+                    <p class="legend-text">feels like</p>
+                </div>
+                <div class="legend-row">
+                    <div class="legend-imgs">
+                        <img
+                            src="assets/primary-info/wind-gust.png"
+                            alt="wind gust"
+                            class="legend-img"
+                        />
+                    </div>
+                    <p class="legend-text">wind speed</p>
+                </div>
+                <div class="legend-row">
+                    <div class="legend-imgs">
+                        <img
+                            src="assets/secondary-info/humidity.png"
+                            alt="raindrop"
+                            class="legend-img"
+                        />
+                    </div>
+                    <p class="legend-text">humidity</p>
+                </div>
+                <div class="legend-row">
+                    <div class="legend-imgs">
+                        <img
+                            src="assets/secondary-info/barometer.png"
+                            alt="barometer"
+                            class="legend-img"
+                        />
+                    </div>
+                    <p class="legend-text">pressure</p>
+                </div>
+                <div class="legend-row">
+                    <div class="legend-imgs">
+                        <img
+                            src="assets/secondary-info/clouds.png"
+                            alt="clouds"
+                            class="legend-img"
+                        />
+                    </div>
+                    <p class="legend-text">clouding</p>
+                </div>
+                <div class="legend-row">
+                    <div class="legend-imgs">
+                        <img
+                            src="assets/primary-info/raining.png"
+                            alt="raining cloud"
+                            class="legend-img"
+                        /><img
+                            src="assets/primary-info/snowing.png"
+                            alt="snowing cloud"
+                            class="legend-img"
+                        />
+                    </div>
+                    <p class="legend-text">precipitation chance</p>
+                </div>
+                <div class="legend-row">
+                    <div class="legend-imgs">
+                        <img
+                            src="assets/secondary-info/rain-volume.png"
+                            alt="rain drops"
+                            class="legend-img"
+                        /><img
+                            src="assets/secondary-info/snow-volume.png"
+                            alt="snowflake"
+                            class="legend-img"
+                        />
+                    </div>
+                    <p class="legend-text">precipitation volume</p>
+                </div>
+            </div>
+        </div>
         <div class="wrapper">
             <!-- sidebar -->
             <div class="sidebar flex-between-column">
@@ -129,34 +222,33 @@
                                 class="config-gear-icon"
                             />
                             <div class="config-menu">
-                                <p class="config-data" data-key="time">
-                                    time: <span data-value="24">24</span>/<span
+                                <p class="config-data">
+                                    <span data-key="time">time:</span>
+                                    <span data-value="24">24</span>/<span
                                         class="config-data-active"
                                         data-value="12"
                                         >12</span
                                     >
                                 </p>
-                                <p class="config-data" data-key="temp">
-                                    temp:
+                                <p class="config-data">
+                                    <span data-key="temp">temp:</span>
                                     <span
                                         class="config-data-active"
                                         data-value="C"
                                         >°C</span
                                     >/<span data-value="F">°F</span>
                                 </p>
-                                <p class="config-data" data-key="speed">
-                                    speed:
+                                <p class="config-data">
+                                    <span data-key="speed">speed:</span>
                                     <span
                                         class="config-data-active"
                                         data-value="kph"
                                         >kph</span
                                     >/<span data-value="mph">mph</span>
                                 </p>
-                                <p class="config-data" data-key="volume">
-                                    volume:
-                                    <span data-value="mm">mm</span>
-                                    /
-                                    <span
+                                <p class="config-data">
+                                    <span data-key="volume">volume:</span>
+                                    <span data-value="mm">mm</span>/<span
                                         class="config-data-active"
                                         data-value="in"
                                         >in</span
