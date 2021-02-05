@@ -11,13 +11,15 @@ let astronomyInfoToggler = main.querySelector(".astronomy-info-toggler");
 let astronomyVisibilityToggler = main.querySelector(
     ".astronomy-visibility-toggler"
 );
-let changeInfoBtn = main.querySelector(".forecasts-buttons-switch-img");
-let secondaryInfos = [...main.querySelectorAll(".forecast-secondary-infos")];
-let primaryInfos = [...main.querySelectorAll(".forecast-primary-infos")];
-let dropdown = main.querySelector(".forecasts-buttons-dropdown-img");
-let dropdownMenu = main.querySelector(".forecasts-buttons-dropdown-menu");
-let legendBtn = main.querySelector(".forecasts-buttons-legend");
+let dropdownBtn = main.querySelector("#dropdown-button");
+let dropdownImg = dropdownBtn.querySelector(".forecasts-dropdown-img");
+let dropdownMenu = main.querySelector(".forecasts-dropdown-menu");
+let switchInfoBtn = main.querySelector("#switch-info-button");
+let switchInfoImg = switchInfoBtn.querySelector(".forecasts-switch-info-img");
+let legendBtn = main.querySelector("#legend-button");
 let legendMod = document.querySelector(".legend-module");
+let primaryInfos = [...main.querySelectorAll(".forecast-primary-infos")];
+let secondaryInfos = [...main.querySelectorAll(".forecast-secondary-infos")];
 
 let failedTO;
 search.addEventListener("keyup", (e) => {
@@ -57,46 +59,34 @@ astronomyVisibilityToggler.addEventListener("click", (e) => {
     );
 });
 
-changeInfoBtn.addEventListener("click", (e) => {
+dropdownBtn.addEventListener("click", (e) => {
+    dropdownImg.classList.toggle("forecasts-dropdown-img-active");
+    dropdownMenu.classList.toggle("forecasts-dropdown-menu-active");
+});
+
+dropdownMenu.addEventListener("click", (e) => {
+    if (e.target.classList.contains("forecasts-dropdown-item")) {
+        dropdownMenu
+            .querySelector(".forecasts-dropdown-item-active")
+            .classList.remove("forecasts-dropdown-item-active");
+        e.target.classList.add("forecasts-dropdown-item-active");
+        dropdownMenu.classList.remove("forecasts-dropdown-menu-active");
+        dropdownImg.classList.remove("forecasts-dropdown-img-active");
+    }
+});
+
+switchInfoBtn.addEventListener("click", (e) => {
     secondaryInfos.forEach((secondaryInfo) =>
         secondaryInfo.classList.toggle("hide")
     );
     primaryInfos.forEach((primaryInfo) => primaryInfo.classList.toggle("hide"));
-    if (
-        changeInfoBtn.classList.contains(
-            "forecasts-buttons-switch-img-rotate-180"
-        )
-    ) {
-        changeInfoBtn.classList.add("forecasts-buttons-switch-img-rotate-360");
-        changeInfoBtn.classList.remove(
-            "forecasts-buttons-switch-img-rotate-180"
-        );
-    } else if (
-        changeInfoBtn.classList.contains(
-            "forecasts-buttons-switch-img-rotate-360"
-        )
-    ) {
-        changeInfoBtn.classList.remove(
-            "forecasts-buttons-switch-img-rotate-360"
-        );
-        changeInfoBtn.classList.add("forecasts-buttons-switch-img-rotate-180");
-    } else
-        changeInfoBtn.classList.add("forecasts-buttons-switch-img-rotate-180");
-});
-
-dropdown.addEventListener("click", (e) => {
-    dropdown.classList.toggle("forecasts-buttons-dropdown-img-active");
-    dropdownMenu.classList.toggle("forecasts-buttons-dropdown-menu-active");
-});
-
-dropdownMenu.addEventListener("click", (e) => {
-    if (e.target.classList.contains("forecasts-buttons-dropdown-item")) {
-        dropdownMenu
-            .querySelector(".forecasts-buttons-dropdown-item-active")
-            .classList.remove("forecasts-buttons-dropdown-item-active");
-        e.target.classList.add("forecasts-buttons-dropdown-item-active");
-        dropdownMenu.classList.remove("forecasts-buttons-dropdown-menu-active");
-    }
+    if (switchInfoImg.classList.contains("switch-info-img-rotate-180")) {
+        switchInfoImg.classList.add("switch-info-img-rotate-360");
+        switchInfoImg.classList.remove("switch-info-img-rotate-180");
+    } else if (switchInfoImg.classList.contains("switch-info-img-rotate-360")) {
+        switchInfoImg.classList.remove("switch-info-img-rotate-360");
+        switchInfoImg.classList.add("switch-info-img-rotate-180");
+    } else switchInfoImg.classList.add("switch-info-img-rotate-180");
 });
 
 legendBtn.addEventListener("click", (e) => {

@@ -13,99 +13,6 @@
     </head>
 
     <body>
-        <div class="legend-module">
-            <div class="legend">
-                <div class="legend-row">
-                    <div class="legend-imgs">
-                        <img
-                            class="legend-img"
-                            src="assets/primary-info/thermometer.png"
-                            alt="thermometer"
-                        />
-                    </div>
-                    <p class="legend-text">temperature</p>
-                </div>
-
-                <div class="legend-row">
-                    <div class="legend-imgs">
-                        <img
-                            src="assets/primary-info/feels-like.png"
-                            alt="thermometer and human"
-                            class="legend-img"
-                        />
-                    </div>
-                    <p class="legend-text">feels like</p>
-                </div>
-                <div class="legend-row">
-                    <div class="legend-imgs">
-                        <img
-                            src="assets/primary-info/wind-gust.png"
-                            alt="wind gust"
-                            class="legend-img"
-                        />
-                    </div>
-                    <p class="legend-text">wind speed</p>
-                </div>
-                <div class="legend-row">
-                    <div class="legend-imgs">
-                        <img
-                            src="assets/secondary-info/humidity.png"
-                            alt="raindrop"
-                            class="legend-img"
-                        />
-                    </div>
-                    <p class="legend-text">humidity</p>
-                </div>
-                <div class="legend-row">
-                    <div class="legend-imgs">
-                        <img
-                            src="assets/secondary-info/barometer.png"
-                            alt="barometer"
-                            class="legend-img"
-                        />
-                    </div>
-                    <p class="legend-text">pressure</p>
-                </div>
-                <div class="legend-row">
-                    <div class="legend-imgs">
-                        <img
-                            src="assets/secondary-info/clouds.png"
-                            alt="clouds"
-                            class="legend-img"
-                        />
-                    </div>
-                    <p class="legend-text">clouding</p>
-                </div>
-                <div class="legend-row">
-                    <div class="legend-imgs">
-                        <img
-                            src="assets/primary-info/raining.png"
-                            alt="raining cloud"
-                            class="legend-img"
-                        /><img
-                            src="assets/primary-info/snowing.png"
-                            alt="snowing cloud"
-                            class="legend-img"
-                        />
-                    </div>
-                    <p class="legend-text">precipitation chance</p>
-                </div>
-                <div class="legend-row">
-                    <div class="legend-imgs">
-                        <img
-                            src="assets/secondary-info/rain-volume.png"
-                            alt="rain drops"
-                            class="legend-img"
-                        /><img
-                            src="assets/secondary-info/snow-volume.png"
-                            alt="snowflake"
-                            class="legend-img"
-                        />
-                    </div>
-                    <p class="legend-text">precipitation volume</p>
-                </div>
-            </div>
-        </div>
         <div class="wrapper">
             <!-- sidebar -->
             <div class="sidebar flex-between-column">
@@ -320,49 +227,161 @@
                         </div>
                     </div>
                     <div class="forecasts-wrapper">
-                        <div class="forecasts-buttons">
-                            <div
-                                class="forecasts-buttons-dropdown forecasts-buttons-button"
-                            >
-                                <img
-                                    src="assets/buttons/hour-dropdown.png"
-                                    alt="toggler"
-                                    class="forecasts-buttons-dropdown-img forecasts-buttons-img"
-                                />
-                                <div class="forecasts-buttons-dropdown-menu">
+                        <div class="forecasts-menu">
+                            <div class="forecasts-dropdown">
+                                <div
+                                    id="dropdown-button"
+                                    class="forecasts-menu-button"
+                                >
+                                    <img
+                                        src="assets/buttons/hour-dropdown.png"
+                                        alt="toggler"
+                                        class="forecasts-menu-img forecasts-dropdown-img"
+                                    />
+                                </div>
+                                <div class="forecasts-dropdown-menu">
                                     <p
-                                        class="forecasts-buttons-dropdown-item"
+                                        class="forecasts-dropdown-item"
                                         data-value="1"
                                     >
                                         1 hour
                                     </p>
                                     <p
-                                        class="forecasts-buttons-dropdown-item"
+                                        class="forecasts-dropdown-item"
                                         data-value="2"
                                     >
                                         2 hours
                                     </p>
                                     <p
-                                        class="forecasts-buttons-dropdown-item forecasts-buttons-dropdown-item-active"
-                                        data-value="2"
+                                        class="forecasts-dropdown-item forecasts-dropdown-item-active"
+                                        data-value="3"
                                     >
                                         3 hours
                                     </p>
                                 </div>
                             </div>
-                            <div
-                                class="forecasts-buttons-switch forecasts-buttons-button"
-                            >
-                                <img
-                                    src="assets/buttons/switch-info.png"
-                                    alt="swap arrows"
-                                    class="forecasts-buttons-switch-img forecasts-buttons-img"
-                                />
+                            <div class="forecasts-switch-info">
+                                <div
+                                    id="switch-info-button"
+                                    class="forecasts-menu-button"
+                                >
+                                    <img
+                                        src="assets/buttons/switch-info.png"
+                                        alt="swap arrows"
+                                        class="forecasts-menu-img forecasts-switch-info-img"
+                                    />
+                                </div>
                             </div>
-                            <div
-                                class="forecasts-buttons-legend forecasts-buttons-button"
-                            >
-                                <p>legend</p>
+                            <div class="forecasts-legend">
+                                <div
+                                    id="legend-button"
+                                    class="forecasts-menu-button"
+                                >
+                                    <p class="bold">legend</p>
+                                </div>
+                                <div class="legend-module">
+                                    <div class="legend">
+                                        <div class="legend-row">
+                                            <div class="legend-imgs">
+                                                <img
+                                                    class="legend-img"
+                                                    src="assets/primary-info/thermometer.png"
+                                                    alt="thermometer"
+                                                />
+                                            </div>
+                                            <p class="legend-text">
+                                                temperature
+                                            </p>
+                                        </div>
+
+                                        <div class="legend-row">
+                                            <div class="legend-imgs">
+                                                <img
+                                                    src="assets/primary-info/feels-like.png"
+                                                    alt="thermometer and human"
+                                                    class="legend-img"
+                                                />
+                                            </div>
+                                            <p class="legend-text">
+                                                feels like
+                                            </p>
+                                        </div>
+                                        <div class="legend-row">
+                                            <div class="legend-imgs">
+                                                <img
+                                                    src="assets/primary-info/wind-gust.png"
+                                                    alt="wind gust"
+                                                    class="legend-img"
+                                                />
+                                            </div>
+                                            <p class="legend-text">
+                                                wind speed
+                                            </p>
+                                        </div>
+                                        <div class="legend-row">
+                                            <div class="legend-imgs">
+                                                <img
+                                                    src="assets/secondary-info/humidity.png"
+                                                    alt="raindrop"
+                                                    class="legend-img"
+                                                />
+                                            </div>
+                                            <p class="legend-text">humidity</p>
+                                        </div>
+                                        <div class="legend-row">
+                                            <div class="legend-imgs">
+                                                <img
+                                                    src="assets/secondary-info/barometer.png"
+                                                    alt="barometer"
+                                                    class="legend-img"
+                                                />
+                                            </div>
+                                            <p class="legend-text">pressure</p>
+                                        </div>
+                                        <div class="legend-row">
+                                            <div class="legend-imgs">
+                                                <img
+                                                    src="assets/secondary-info/clouds.png"
+                                                    alt="clouds"
+                                                    class="legend-img"
+                                                />
+                                            </div>
+                                            <p class="legend-text">clouding</p>
+                                        </div>
+                                        <div class="legend-row">
+                                            <div class="legend-imgs">
+                                                <img
+                                                    src="assets/primary-info/raining.png"
+                                                    alt="raining cloud"
+                                                    class="legend-img"
+                                                /><img
+                                                    src="assets/primary-info/snowing.png"
+                                                    alt="snowing cloud"
+                                                    class="legend-img"
+                                                />
+                                            </div>
+                                            <p class="legend-text">
+                                                precipitation chance
+                                            </p>
+                                        </div>
+                                        <div class="legend-row">
+                                            <div class="legend-imgs">
+                                                <img
+                                                    src="assets/secondary-info/rain-volume.png"
+                                                    alt="rain drops"
+                                                    class="legend-img"
+                                                /><img
+                                                    src="assets/secondary-info/snow-volume.png"
+                                                    alt="snowflake"
+                                                    class="legend-img"
+                                                />
+                                            </div>
+                                            <p class="legend-text">
+                                                precipitation volume
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                         <!-- hour forecasts -->

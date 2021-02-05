@@ -1,0 +1,43 @@
+.forecasts-dropdown {
+    position: relative;
+    &-img {
+        transition: transform 550ms linear;
+        &-active {
+            transform: rotateX(180deg);
+        }
+    }
+    &-menu {
+        font-family: sans-serif;
+        position: absolute;
+        top: calc(var(--img-height) - 7px);
+        left: 0;
+        background-color: #000;
+        color: #aaa;
+        white-space: nowrap;
+        border-radius: 1rem;
+        min-width: 100px;
+        max-height: 0;
+        padding: 0em 1em;
+        overflow: hidden;
+        transition: max-height 1000ms linear, padding 1000ms ease-in-out,
+            top 500ms ease-in-out;
+        &-active {
+            padding: 0.5em 1em;
+            max-height: 130px;
+            top: calc(var(--img-height) + 3px);
+        }
+    }
+    &-item {
+        cursor: pointer;
+        font-size: 1rem;
+        & + & {
+            margin-top: 0.3rem;
+        }
+        &:hover,
+        &-active {
+            font-weight: bold;
+            color: #fff;
+            padding-left: 0.2em;
+        }
+    }
+}
