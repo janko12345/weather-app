@@ -1,20 +1,20 @@
-$burger-width: 25px;
-
 .hamburger-button {
+    --burger-width: 25px;
+    --burger-height: 3px;
     cursor: pointer;
     position: absolute;
-    height: calc(3px * 5);
+    height: calc(var(--burger-height) * 5);
     @include flex(center, center);
-    transform: translateX(calc(100% + 12px));
+    transform: translateX(calc(100% + var(--burger-width) / 2));
     right: 7px;
-    top: 7px;
+    top: calc(var(--burger-height) * 2);
     transition: transform 500ms ease-in-out;
     &-active {
         transform: translateX(0);
         .hamburger {
             &::before,
             &::after {
-                width: calc(#{$burger-width} / 2 + #{$burger-width} / 10);
+                width: calc(var(--burger-width) / 2 + var(--burger-width) / 10);
             }
             &::before {
                 transform: translate(-0%, -200%) rotate(-45deg);
@@ -27,12 +27,12 @@ $burger-width: 25px;
 }
 
 .hamburger {
-    width: $burger-width;
+    width: var(--burger-width);
     &,
     &::before,
     &::after {
-        height: 3px;
-        width: $burger-width;
+        height: var(--burger-height);
+        width: var(--burger-width);
         background-color: #000;
         transition: transform 500ms ease-in-out, width 500ms ease-in-out;
     }
@@ -46,5 +46,12 @@ $burger-width: 25px;
     }
     &::after {
         transform: translateY(200%);
+    }
+}
+
+@media (min-width: getMedia(sm)) {
+    .hamburger-button {
+        --burger-width: 35px;
+        --burger-height: 4px;
     }
 }

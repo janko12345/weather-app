@@ -129,38 +129,67 @@
                                 class="config-gear-icon"
                             />
                             <div class="config-menu">
-                                <p class="config-data">
-                                    <span data-key="time">time:</span>
-                                    <span data-value="24">24</span>/<span
-                                        class="config-data-active"
-                                        data-value="12"
-                                        >12</span
-                                    >
-                                </p>
-                                <p class="config-data">
-                                    <span data-key="temp">temp:</span>
-                                    <span
-                                        class="config-data-active"
-                                        data-value="C"
-                                        >°C</span
-                                    >/<span data-value="F">°F</span>
-                                </p>
-                                <p class="config-data">
-                                    <span data-key="speed">speed:</span>
-                                    <span
-                                        class="config-data-active"
-                                        data-value="kph"
-                                        >kph</span
-                                    >/<span data-value="mph">mph</span>
-                                </p>
-                                <p class="config-data">
-                                    <span data-key="volume">volume:</span>
-                                    <span data-value="mm">mm</span>/<span
-                                        class="config-data-active"
-                                        data-value="in"
-                                        >in</span
-                                    >
-                                </p>
+                                <div class="config-menu-switch">
+                                    <img
+                                        class="config-menu-img"
+                                        src="assets/buttons/two-way-arrows.png"
+                                        alt="two way arrows"
+                                    />
+                                </div>
+                                <div id="format-menu">
+                                    <p class="config-data">
+                                        <span data-key="time">time:</span>
+                                        <span data-value="24">24</span>/<span
+                                            class="config-data-active"
+                                            data-value="12"
+                                            >12</span
+                                        >
+                                    </p>
+                                    <p class="config-data">
+                                        <span data-key="temp">temp:</span>
+                                        <span
+                                            class="config-data-active"
+                                            data-value="C"
+                                            >°C</span
+                                        >/<span data-value="F">°F</span>
+                                    </p>
+                                    <p class="config-data">
+                                        <span data-key="volume">volume:</span>
+                                        <span data-value="mm">mm</span>/<span
+                                            class="config-data-active"
+                                            data-value="in"
+                                            >in</span
+                                        >
+                                    </p>
+                                    <p class="config-data">
+                                        <span data-key="speed">speed:</span>
+                                        <span
+                                            class="config-data-active"
+                                            data-value="kph"
+                                            >kph</span
+                                        >/<span data-value="mph">mph</span>
+                                    </p>
+                                </div>
+                                <div id="other-menu" class="hide">
+                                    <p class="config-data">
+                                        <span data-key="gif">gif:</span>
+                                        <span data-value="true">on</span>/<span
+                                            class="config-data-active"
+                                            data-value="false"
+                                            >off</span
+                                        >
+                                    </p>
+                                    <p class="config-data">
+                                        <span data-key="astronomy"
+                                            >astronomy:</span
+                                        >
+                                        <span data-value="true">on</span>/<span
+                                            class="config-data-active"
+                                            data-value="false"
+                                            >off</span
+                                        >
+                                    </p>
+                                </div>
                             </div>
                         </div>
                     </div>

@@ -1,3 +1,7 @@
 @function getColor($color) {
     @return map-get($map: $colors, $key: $color);
 }
+
+@function getMedia($size) {
+    @return map-get($map: $medias, $key: $size);
+}

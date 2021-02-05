@@ -5,6 +5,10 @@ let burger = sidebar.querySelector(".hamburger-button");
 let main = document.querySelector("main");
 let gear = main.querySelector(".config-gear-icon");
 let configMenu = main.querySelector(".config-menu");
+let formatMenu = configMenu.querySelector("#format-menu");
+let otherMenu = configMenu.querySelector("#other-menu");
+let configSwitch = configMenu.querySelector(".config-menu-switch");
+
 let astronomyCnt = document.querySelector(".astronomy-wrapper");
 let astronomy = document.querySelector(".astronomy");
 let astronomyInfoToggler = main.querySelector(".astronomy-info-toggler");
@@ -45,6 +49,11 @@ burger.addEventListener("click", (e) => {
 gear.addEventListener("click", (e) => {
     gear.classList.toggle("config-gear-icon-active");
     configMenu.classList.toggle("config-menu-active");
+});
+
+configSwitch.addEventListener("click", (e) => {
+    formatMenu.classList.toggle("hide");
+    otherMenu.classList.toggle("hide");
 });
 
 astronomyInfoToggler.addEventListener("click", (e) => {

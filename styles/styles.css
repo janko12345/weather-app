@@ -11,10 +11,16 @@ img {
   width: 30px;
 }
 
+@media (min-width: 500px) {
+  html {
+    font-size: 20px;
+  }
+}
+
 .sidebar {
   position: fixed;
   background-color: #89afd1;
-  height: 100vh;
+  height: 100%;
   width: 50vw;
   min-width: 230px;
   max-width: 350px;
@@ -40,9 +46,11 @@ img {
 }
 
 .hamburger-button {
+  --burger-width: 25px;
+  --burger-height: 3px;
   cursor: pointer;
   position: absolute;
-  height: calc(3px * 5);
+  height: calc(var(--burger-height) * 5);
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -57,10 +65,10 @@ img {
       -ms-flex-flow: row nowrap;
           flex-flow: row nowrap;
   gap: 0;
-  -webkit-transform: translateX(calc(100% + 12px));
-          transform: translateX(calc(100% + 12px));
+  -webkit-transform: translateX(calc(100% + var(--burger-width) / 2));
+          transform: translateX(calc(100% + var(--burger-width) / 2));
   right: 7px;
-  top: 7px;
+  top: calc(var(--burger-height) * 2);
   -webkit-transition: -webkit-transform 500ms ease-in-out;
   transition: -webkit-transform 500ms ease-in-out;
   transition: transform 500ms ease-in-out;
@@ -73,7 +81,7 @@ img {
 }
 
 .hamburger-button-active .hamburger::before, .hamburger-button-active .hamburger::after {
-  width: calc(25px / 2 + 25px / 10);
+  width: calc(var(--burger-width) / 2 + var(--burger-width) / 10);
 }
 
 .hamburger-button-active .hamburger::before {
@@ -87,12 +95,12 @@ img {
 }
 
 .hamburger {
-  width: 25px;
+  width: var(--burger-width);
 }
 
 .hamburger, .hamburger::before, .hamburger::after {
-  height: 3px;
-  width: 25px;
+  height: var(--burger-height);
+  width: var(--burger-width);
   background-color: #000;
   -webkit-transition: width 500ms ease-in-out, -webkit-transform 500ms ease-in-out;
   transition: width 500ms ease-in-out, -webkit-transform 500ms ease-in-out;
@@ -113,6 +121,13 @@ img {
 .hamburger::after {
   -webkit-transform: translateY(200%);
           transform: translateY(200%);
+}
+
+@media (min-width: 500px) {
+  .hamburger-button {
+    --burger-width: 35px;
+    --burger-height: 4px;
+  }
 }
 
 .sidebar-header {
@@ -336,6 +351,8 @@ img {
 
 .config {
   --gear-width: 25px;
+  --switch-width: 15px;
+  --switch-offset: 10px;
   position: absolute;
   right: 7px;
   top: 2px;
@@ -365,7 +382,7 @@ img {
   color: #fff;
   font-weight: bold;
   border-radius: 20px;
-  padding: 0.5em 1em;
+  padding: 0.7em calc(var(--switch-width) + var(--switch-offset) + 5px) 0.7em 1.2em;
   opacity: 0;
   pointer-events: none;
   -webkit-transition: opacity 500ms ease-in-out;
@@ -375,6 +392,19 @@ img {
 .config-menu-active {
   pointer-events: auto;
   opacity: 1;
+}
+
+.config-menu-switch {
+  cursor: pointer;
+  position: absolute;
+  right: var(--switch-offset);
+  top: var(--switch-offset);
+}
+
+.config-menu-img {
+  width: var(--switch-width);
+  -webkit-filter: invert(100%);
+          filter: invert(100%);
 }
 
 .config-data + .config-data {
@@ -409,6 +439,14 @@ img {
   color: #fff;
 }
 
+@media (min-width: 500px) {
+  .config {
+    --gear-width: 35px;
+    --switch-width: 20px;
+    --switch-offset: 15px;
+  }
+}
+
 .github {
   position: fixed;
   right: 10px;
@@ -423,6 +461,114 @@ img {
   position: relative;
   min-height: 17px;
   margin-bottom: 10px;
+}
+
+.astronomy-info-toggled .astronomy-info-moon {
+  -webkit-transform: translateY(0);
+          transform: translateY(0);
+}
+
+.astronomy-info-toggled .astronomy-info-sun {
+  -webkit-transform: translateY(100%);
+          transform: translateY(100%);
+}
+
+.astronomy {
+  position: relative;
+  -webkit-transition: max-height 500ms ease-in-out;
+  transition: max-height 500ms ease-in-out;
+  overflow: hidden;
+  max-height: 44vw;
+}
+
+.astronomy-hide {
+  max-height: 0 !important;
+}
+
+.astronomy-info {
+  font-weight: bold;
+  font-family: sans-serif;
+  font-size: 0.9rem;
+  text-align: center;
+  text-shadow: 0 0 1px #fff;
+}
+
+.astronomy-info-pair {
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+}
+
+.astronomy-info-text {
+  line-height: 1.5;
+  white-space: nowrap;
+  position: absolute;
+  left: 50%;
+  -webkit-transform: translateX(-50%);
+          transform: translateX(-50%);
+}
+
+.astronomy-info-sun, .astronomy-info-moon {
+  -webkit-transition: -webkit-transform 350ms ease-in-out;
+  transition: -webkit-transform 350ms ease-in-out;
+  transition: transform 350ms ease-in-out;
+  transition: transform 350ms ease-in-out, -webkit-transform 350ms ease-in-out;
+  padding-bottom: 22%;
+}
+
+.astronomy-info-moon {
+  position: absolute;
+  width: 100%;
+  -webkit-transform: translateY(-100%);
+          transform: translateY(-100%);
+}
+
+.astronomy-info-sun-rise, .astronomy-info-sun-set, .astronomy-info-moon-rise, .astronomy-info-moon-set {
+  background-size: cover;
+  background-position: center bottom;
+  background-repeat: no-repeat;
+}
+
+.astronomy-info-sun-rise {
+  background-image: url("../assets/decoratives/sunrise.png");
+}
+
+.astronomy-info-sun-set {
+  background-image: url("../assets/decoratives/sunset.png");
+  background-position-y: 70%;
+}
+
+.astronomy-info-moon-rise {
+  background-image: url("../assets/decoratives/moonrise.png");
+}
+
+.astronomy-info-moon-set {
+  background-image: url("../assets/decoratives/moonset.png");
+}
+
+@media (min-width: 500px) {
+  .astronomy {
+    max-height: 22vw;
+  }
+  .astronomy-info {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: stretch;
+        -ms-flex-pack: stretch;
+            justify-content: stretch;
+    -webkit-box-align: stretch;
+        -ms-flex-align: stretch;
+            align-items: stretch;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-flow: row nowrap;
+            flex-flow: row nowrap;
+    gap: 0;
+  }
+  .astronomy-info-sun, .astronomy-info-moon {
+    padding-bottom: MAX(100px, 22%);
+  }
 }
 
 .astronomy-visibility-toggler {
@@ -441,28 +587,6 @@ img {
   color: #000 !important;
   -webkit-transform: rotate(-180deg);
           transform: rotate(-180deg);
-}
-
-.astronomy-info-toggled .astronomy-visibility-toggler {
-  color: #fff;
-}
-
-.astronomy-info-toggled .astronomy-info-sun,
-.astronomy-info-toggled .astronomy-info-moon {
-  -webkit-transform: translateY(0);
-          transform: translateY(0);
-}
-
-.astronomy {
-  position: relative;
-  -webkit-transition: height 500ms ease-in-out;
-  transition: height 500ms ease-in-out;
-  height: 170px;
-  overflow: hidden;
-}
-
-.astronomy-hide {
-  height: 0;
 }
 
 .astronomy-info-toggler {
@@ -490,57 +614,14 @@ img {
   background-color: #000;
 }
 
-.astronomy-info {
-  font-weight: bold;
-  font-family: sans-serif;
-  font-size: 0.9rem;
-  text-align: center;
-  text-shadow: 0 0 1px #fff;
+.astronomy-info-toggled .astronomy-visibility-toggler {
+  color: #fff;
 }
 
-.astronomy-info-pair {
-  overflow: hidden;
-  height: 85px;
-}
-
-.astronomy-info-pair * {
-  height: 100%;
-}
-
-.astronomy-info-text {
-  line-height: 1.5;
-}
-
-.astronomy-info-sun, .astronomy-info-moon {
-  -webkit-transform: translateY(-100%);
-          transform: translateY(-100%);
-  -webkit-transition: -webkit-transform 350ms ease-in-out;
-  transition: -webkit-transform 350ms ease-in-out;
-  transition: transform 350ms ease-in-out;
-  transition: transform 350ms ease-in-out, -webkit-transform 350ms ease-in-out;
-}
-
-.astronomy-info-sun-rise, .astronomy-info-sun-set, .astronomy-info-moon-rise, .astronomy-info-moon-set {
-  background-size: cover;
-  background-position: center bottom;
-}
-
-.astronomy-info-sun-rise {
-  background-image: url("../assets/decoratives/sunrise.png");
-}
-
-.astronomy-info-sun-set {
-  background-image: url("../assets/decoratives/sunset.png");
-  background-position-y: 135px;
-}
-
-.astronomy-info-moon-rise {
-  background-image: url("../assets/decoratives/moonrise.png");
-  background-position-y: 100px;
-}
-
-.astronomy-info-moon-set {
-  background-image: url("../assets/decoratives/moonset.png");
+@media (min-width: 500px) {
+  .astronomy-visibility-toggler {
+    color: #fff;
+  }
 }
 
 .forecasts-menu {

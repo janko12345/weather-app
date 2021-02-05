@@ -1,0 +1,82 @@
+.config {
+    --gear-width: 25px;
+    --switch-width: 15px;
+    --switch-offset: 10px;
+    position: absolute;
+    right: 7px;
+    top: 2px;
+    &-gear-icon {
+        cursor: pointer;
+        width: var(--gear-width);
+        transition: transform 500ms linear;
+        &-active {
+            transform: rotate(120deg);
+        }
+    }
+    &-menu {
+        position: absolute;
+        right: var(--gear-width);
+        top: calc(var(--gear-width) / 2);
+        background-color: #000;
+        white-space: nowrap;
+        font-family: sans-serif;
+        color: #fff;
+        font-weight: bold;
+        border-radius: 20px;
+        padding: 0.7em calc(var(--switch-width) + var(--switch-offset) + 5px)
+            0.7em 1.2em;
+        opacity: 0;
+        pointer-events: none;
+        transition: opacity 500ms ease-in-out;
+        &-active {
+            pointer-events: auto;
+            opacity: 1;
+        }
+
+        &-switch {
+            cursor: pointer;
+            position: absolute;
+            right: var(--switch-offset);
+            top: var(--switch-offset);
+        }
+        &-img {
+            width: var(--switch-width);
+            filter: invert(100%);
+        }
+    }
+    &-data {
+        & + & {
+            margin-top: 0.5em;
+        }
+        &-active {
+            color: #0f0;
+        }
+    }
+    [data-key] {
+        display: inline-block;
+        margin-right: 0.4em;
+    }
+    [data-value] {
+        cursor: pointer;
+        display: inline-block;
+        margin-right: 0.2em;
+        & ~ [data-value] {
+            margin-right: 0;
+            margin-left: 0.2em;
+        }
+    }
+    [data-value]:not(.config-data-active) {
+        color: #aaa;
+        &:hover {
+            color: #fff;
+        }
+    }
+}
+
+@media (min-width: getMedia(sm)) {
+    .config {
+        --gear-width: 35px;
+        --switch-width: 20px;
+        --switch-offset: 15px;
+    }
+}

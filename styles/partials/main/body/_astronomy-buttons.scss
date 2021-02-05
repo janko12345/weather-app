@@ -1,0 +1,46 @@
+.astronomy-visibility-toggler {
+    cursor: pointer;
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    z-index: 2;
+    transition: transform 200ms linear, color 200ms linear;
+    &-rolled-up {
+        color: #000 !important;
+        transform: rotate(-180deg);
+    }
+}
+
+.astronomy-info-toggler {
+    cursor: pointer;
+    position: absolute;
+    z-index: 3;
+    left: 5px;
+    top: 5px;
+    background-color: #fff;
+    border-radius: 50%;
+    height: 16px;
+    width: 16px;
+    &-active {
+        &::before {
+            content: "";
+            @include centerByPosition(absolute, xy);
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background-color: #000;
+        }
+    }
+}
+
+.astronomy-info-toggled {
+    .astronomy-visibility-toggler {
+        color: #fff;
+    }
+}
+
+@media (min-width: getMedia(sm)) {
+    .astronomy-visibility-toggler {
+        color: #fff;
+    }
+}
