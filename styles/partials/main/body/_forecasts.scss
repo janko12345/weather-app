@@ -1,6 +1,7 @@
 .forecasts-wrapper {
     overflow: hidden;
     margin-bottom: 40px;
+    width: fit-content;
 }
 
 .forecasts {
@@ -14,15 +15,17 @@
     border-right: 2px solid;
     min-width: 100px;
     min-height: 150px;
+    padding: 0 0.5rem;
     text-align: center;
     &:last-child {
         border: none;
     }
     &-hour {
+        font-family: sans-serif;
         margin-bottom: 0.2em;
     }
     &-main-icon {
-        width: 37px;
+        width: 2.5rem;
     }
     &-infos {
         @include flex();
@@ -35,9 +38,9 @@
     }
 
     &-info-img {
-        width: 23px;
+        width: 1.4rem;
     }
     &-info-data {
-        font-size: 0.9rem;
+        font-size: 1rem;
     }
 }

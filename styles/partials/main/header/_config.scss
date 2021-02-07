@@ -5,6 +5,7 @@
     position: absolute;
     right: 7px;
     top: 2px;
+    z-index: 3;
     &-gear-icon {
         cursor: pointer;
         width: var(--gear-width);
@@ -59,10 +60,12 @@
     [data-value] {
         cursor: pointer;
         display: inline-block;
-        margin-right: 0.2em;
-        & ~ [data-value] {
+        margin: 0 0.2em;
+        &:nth-child(2) {
+            margin-left: 0;
+        }
+        &:last-child {
             margin-right: 0;
-            margin-left: 0.2em;
         }
     }
     [data-value]:not(.config-data-active) {

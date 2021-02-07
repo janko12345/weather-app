@@ -4,20 +4,11 @@
     margin-bottom: 10px;
 }
 
-.astronomy-info-toggled {
-    .astronomy-info-moon {
-        transform: translateY(0);
-    }
-    .astronomy-info-sun {
-        transform: translateY(100%);
-    }
-}
-
 .astronomy {
     position: relative;
     transition: max-height 500ms ease-in-out;
     overflow: hidden;
-    max-height: 44vw; // because of height 0 and padding-bottom: 22%
+    max-height: MIN(44vw, 200px); // because of padding-bottom: 22%
     &-hide {
         max-height: 0 !important;
     }
@@ -41,7 +32,7 @@
         &-sun,
         &-moon {
             transition: transform 350ms ease-in-out;
-            padding-bottom: 22%;
+            padding-bottom: MIN(22%, 100px);
         }
         &-moon {
             position: absolute;
@@ -72,9 +63,18 @@
     }
 }
 
-@media (min-width: getMedia(sm)) {
+.astronomy-info-toggled {
+    .astronomy-info-moon {
+        transform: translateY(0);
+    }
+    .astronomy-info-sun {
+        transform: translateY(100%);
+    }
+}
+
+@media (min-width: getMedia(md)) {
     .astronomy {
-        max-height: 22vw;
+        max-height: MAX(100px, 11vw);
         &-info {
             @include flex();
             &-sun,

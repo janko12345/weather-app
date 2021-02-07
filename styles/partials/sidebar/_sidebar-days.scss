@@ -6,17 +6,22 @@
         font-size: 1.2rem;
         background-color: getColor(bg-secondary);
         padding: 0.7em;
-        margin-bottom: 1.2rem;
+        margin-bottom: 1.2em;
         &:hover {
             cursor: pointer;
         }
-        &-top,
-        &-bottom {
+        &-row {
             @include flex(space-between);
-            vertical-align: bottom;
-        }
-        &-top {
             margin-bottom: 0.5em;
+            > * {
+                margin-left: 1.2em;
+                &:first-child {
+                    margin-left: 0;
+                }
+            }
+        }
+        &-row:last-child {
+            margin-bottom: 0;
         }
         &-temp {
             @include flex();
@@ -29,16 +34,67 @@
         margin-bottom: 3rem;
 
         &-title {
-            font-size: 1.5rem;
+            font-size: 1.4rem;
             text-align: center;
             margin-bottom: 0.7em;
         }
     }
     &-next-days {
         &-title {
-            font-size: 1.5rem;
-            margin-bottom: 1.2em;
+            font-size: 1.4rem;
+            margin-bottom: 1em;
             text-align: center;
+        }
+    }
+}
+
+@media (min-height: 690px) and (max-width: 699px) {
+    .sidebar {
+        &-day {
+            font-size: 1.4rem;
+        }
+        &-today {
+            margin-bottom: 3.35rem;
+            &-title {
+                font-size: 1.5rem;
+            }
+        }
+        &-next-days-title {
+            font-size: 1.5rem;
+        }
+    }
+}
+
+@media (min-height: 750px) and (max-width: 699px) {
+    .sidebar {
+        &-day {
+            font-size: 1.5rem;
+        }
+        &-today {
+            margin-bottom: 3.45rem;
+            &-title {
+                font-size: 1.6rem;
+            }
+        }
+        &-next-days-title {
+            font-size: 1.6rem;
+        }
+    }
+}
+
+@media (min-height: 790px) and (max-width: 699px) {
+    .sidebar {
+        &-day {
+            font-size: 1.6rem;
+        }
+        &-today {
+            margin-bottom: 3.55rem;
+            &-title {
+                font-size: 1.7rem;
+            }
+        }
+        &-next-days-title {
+            font-size: 1.7rem;
         }
     }
 }

@@ -15,7 +15,7 @@
     <body>
         <div class="wrapper">
             <!-- sidebar -->
-            <div class="sidebar flex-between-column">
+            <div class="sidebar">
                 <div class="hamburger-button">
                     <div class="hamburger"></div>
                 </div>
@@ -34,7 +34,7 @@
                             alt="loading..."
                             class="sidebar-loading"
                         />
-                        <p class="not-found">city not found</p>
+                        <p class="sidebar-not-found">city not found</p>
                     </div>
                 </div>
                 <!-- days -->
@@ -42,7 +42,7 @@
                     <div class="sidebar-today">
                         <h3 class="sidebar-today-title">today</h3>
                         <div class="sidebar-day">
-                            <div class="sidebar-day-top">
+                            <div class="sidebar-day-row">
                                 <img
                                     src="dynamic"
                                     alt="dynamic"
@@ -59,7 +59,7 @@
                                     >
                                 </p>
                             </div>
-                            <div class="sidebar-day-bottom">
+                            <div class="sidebar-day-row">
                                 <p class="sidebar-day-which">wednesday</p>
                                 <p class="sidebar-day-weather">snowy</p>
                             </div>
@@ -70,7 +70,7 @@
                             next 2 days forecast
                         </h4>
                         <div class="sidebar-day sidebar-tommorow">
-                            <div class="sidebar-day-top">
+                            <div class="sidebar-day-row">
                                 <img
                                     src="dynamic"
                                     alt="dynamic"
@@ -87,13 +87,13 @@
                                     >
                                 </p>
                             </div>
-                            <div class="sidebar-day-bottom">
+                            <div class="sidebar-day-row">
                                 <p class="sidebar-day-which">wednesday</p>
                                 <p class="sidebar-day-weather">snowy</p>
                             </div>
                         </div>
                         <div class="sidebar-day sidebar-day-after-tommorow">
-                            <div class="sidebar-day-top">
+                            <div class="sidebar-day-row">
                                 <img
                                     src="dynamic"
                                     alt="dynamic"
@@ -110,7 +110,7 @@
                                     >
                                 </p>
                             </div>
-                            <div class="sidebar-day-bottom">
+                            <div class="sidebar-day-row">
                                 <p class="sidebar-day-which">wednesday</p>
                                 <p class="sidebar-day-weather">snowy</p>
                             </div>
@@ -121,78 +121,6 @@
             <!-- main -->
             <main class="main">
                 <div class="header">
-                    <div class="header-buttons">
-                        <div class="config">
-                            <img
-                                src="assets/buttons/settings-img.png"
-                                alt="gear icon"
-                                class="config-gear-icon"
-                            />
-                            <div class="config-menu">
-                                <div class="config-menu-switch">
-                                    <img
-                                        class="config-menu-img"
-                                        src="assets/buttons/two-way-arrows.png"
-                                        alt="two way arrows"
-                                    />
-                                </div>
-                                <div id="format-menu">
-                                    <p class="config-data">
-                                        <span data-key="time">time:</span>
-                                        <span data-value="24">24</span>/<span
-                                            class="config-data-active"
-                                            data-value="12"
-                                            >12</span
-                                        >
-                                    </p>
-                                    <p class="config-data">
-                                        <span data-key="temp">temp:</span>
-                                        <span
-                                            class="config-data-active"
-                                            data-value="C"
-                                            >°C</span
-                                        >/<span data-value="F">°F</span>
-                                    </p>
-                                    <p class="config-data">
-                                        <span data-key="volume">volume:</span>
-                                        <span data-value="mm">mm</span>/<span
-                                            class="config-data-active"
-                                            data-value="in"
-                                            >in</span
-                                        >
-                                    </p>
-                                    <p class="config-data">
-                                        <span data-key="speed">speed:</span>
-                                        <span
-                                            class="config-data-active"
-                                            data-value="kph"
-                                            >kph</span
-                                        >/<span data-value="mph">mph</span>
-                                    </p>
-                                </div>
-                                <div id="other-menu" class="hide">
-                                    <p class="config-data">
-                                        <span data-key="gif">gif:</span>
-                                        <span data-value="true">on</span>/<span
-                                            class="config-data-active"
-                                            data-value="false"
-                                            >off</span
-                                        >
-                                    </p>
-                                    <p class="config-data">
-                                        <span data-key="astronomy"
-                                            >astronomy:</span
-                                        >
-                                        <span data-value="true">on</span>/<span
-                                            class="config-data-active"
-                                            data-value="false"
-                                            >off</span
-                                        >
-                                    </p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
                     <div class="brand">
                         <h1 class="brand-name">weather watcher</h1>
                         <img
@@ -200,6 +128,87 @@
                             alt="eye in clouds"
                             class="brand-logo"
                         />
+                    </div>
+                    <div class="config">
+                        <img
+                            src="assets/buttons/settings-img.png"
+                            alt="gear icon"
+                            class="config-gear-icon"
+                        />
+                        <div class="config-menu">
+                            <div class="config-menu-switch">
+                                <img
+                                    class="config-menu-img"
+                                    src="assets/buttons/two-way-arrows.png"
+                                    alt="two way arrows"
+                                />
+                            </div>
+                            <div id="format-menu">
+                                <p class="config-data">
+                                    <span data-key="time">time:</span>
+                                    <span data-value="24">24</span>/<span
+                                        class="config-data-active"
+                                        data-value="12"
+                                        >12</span
+                                    >
+                                </p>
+                                <p class="config-data">
+                                    <span data-key="temp">temp:</span>
+                                    <span
+                                        class="config-data-active"
+                                        data-value="C"
+                                        >°C</span
+                                    >/<span data-value="F">°F</span>
+                                </p>
+                                <p class="config-data">
+                                    <span data-key="volume">volume:</span>
+                                    <span data-value="mm">mm</span>/<span
+                                        class="config-data-active"
+                                        data-value="in"
+                                        >in</span
+                                    >
+                                </p>
+                                <p class="config-data">
+                                    <span data-key="speed">speed:</span>
+                                    <span
+                                        class="config-data-active"
+                                        data-value="kph"
+                                        >kph</span
+                                    >/<span data-value="mph">mph</span>
+                                </p>
+                            </div>
+                            <div id="other-menu" class="hide">
+                                <p class="config-data">
+                                    <span data-key="gif">gif:</span>
+                                    <span data-value="true">on</span>/<span
+                                        class="config-data-active"
+                                        data-value="false"
+                                        >off</span
+                                    >
+                                </p>
+                                <p class="config-data">
+                                    <span data-key="astronomy">astronomy:</span>
+                                    <span data-value="true">on</span>/<span
+                                        class="config-data-active"
+                                        data-value="false"
+                                        >off</span
+                                    >
+                                </p>
+                                <p class="config-data">
+                                    <span data-key="hour-interval"
+                                        >hour interval:</span
+                                    >
+                                    <span data-value="2">1</span>/<span
+                                        data-value="2"
+                                        >2</span
+                                    >/<span
+                                        class="config-data-active"
+                                        data-value="3"
+                                        >3</span
+                                    >
+                                </p>
+                            </div>
+                        </div>
                     </div>
                 </div>
                 <div class="body">
@@ -427,9 +436,7 @@
                                 <div
                                     class="forecast-infos forecast-primary-infos"
                                 >
-                                    <div
-                                        class="forecast-infos-top forecast-info-column"
-                                    >
+                                    <div class="forecast-info-column">
                                         <div class="forecast-info">
                                             <img
                                                 src="assets/primary-info/thermometer.png"
@@ -451,9 +458,7 @@
                                             </p>
                                         </div>
                                     </div>
-                                    <div
-                                        class="forecast-infos-bottom forecast-info-column"
-                                    >
+                                    <div class="forecast-info-column">
                                         <div class="forecast-info">
                                             <img
                                                 src="assets/primary-info/snowing.png"
@@ -479,9 +484,7 @@
                                 <div
                                     class="forecast-infos forecast-secondary-infos hide"
                                 >
-                                    <div
-                                        class="forecast-infos-top forecast-info-column"
-                                    >
+                                    <div class="forecast-info-column">
                                         <div class="forecast-info">
                                             <img
                                                 src="assets/secondary-info/humidity.png"
@@ -503,9 +506,7 @@
                                             </p>
                                         </div>
                                     </div>
-                                    <div
-                                        class="forecast-infos-bottom forecast-info-column"
-                                    >
+                                    <div class="forecast-info-column">
                                         <div class="forecast-info">
                                             <img
                                                 src="assets/secondary-info/rain-volume.png"
@@ -513,7 +514,7 @@
                                                 class="forecast-info-img"
                                             />
                                             <p class="forecast-info-data">
-                                                333mm
+                                                33mm
                                             </p>
                                         </div>
 
@@ -566,19 +567,19 @@
                                 <div class="current-infos-row">
                                     <div class="current-info">
                                         <img
-                                            src="assets/secondary-info/humidity.png"
-                                            alt="rain drop humidity"
-                                            class="current-info-img"
-                                        />
-                                        <p class="current-info-data">100%</p>
-                                    </div>
-                                    <div class="current-info">
-                                        <img
                                             src="assets/secondary-info/snow-volume.png"
                                             alt="snow flake"
                                             class="current-info-img"
                                         />
                                         <p class="current-info-data">20mm</p>
+                                    </div>
+                                    <div class="current-info">
+                                        <img
+                                            src="assets/secondary-info/humidity.png"
+                                            alt="rain drop humidity"
+                                            class="current-info-img"
+                                        />
+                                        <p class="current-info-data">100%</p>
                                     </div>
                                     <div class="current-info">
                                         <img

@@ -1,38 +1,41 @@
 .hamburger-button {
-    --burger-width: 25px;
-    --burger-height: 3px;
+    --burger-line-width: 25px;
+    --burger-line-height: 3px;
+    @include flex(
+        center,
+        center
+    ); // needed to properly align the base middle line into center of a burger-button
     cursor: pointer;
     position: absolute;
-    height: calc(var(--burger-height) * 5);
-    @include flex(center, center);
-    transform: translateX(calc(100% + var(--burger-width) / 2));
+    height: calc(var(--burger-line-height) * 5);
+    transform: translateX(calc(100% + var(--burger-line-width) / 2));
     right: 7px;
-    top: calc(var(--burger-height) * 2);
+    top: calc(var(--burger-line-height) * 2);
     transition: transform 500ms ease-in-out;
     &-active {
         transform: translateX(0);
         .hamburger {
             &::before,
             &::after {
-                width: calc(var(--burger-width) / 2 + var(--burger-width) / 10);
+                width: calc(var(--burger-line-width) / 2 + 2px);
             }
             &::before {
-                transform: translate(-0%, -200%) rotate(-45deg);
+                transform: translate(-5%, -200%) rotate(-45deg);
             }
             &::after {
-                transform: translate(-0%, 200%) rotate(45deg);
+                transform: translate(-5%, 200%) rotate(45deg);
             }
         }
     }
 }
 
 .hamburger {
-    width: var(--burger-width);
+    width: var(--burger-line-width);
     &,
     &::before,
     &::after {
-        height: var(--burger-height);
-        width: var(--burger-width);
+        height: var(--burger-line-height);
+        width: var(--burger-line-width);
         background-color: #000;
         transition: transform 500ms ease-in-out, width 500ms ease-in-out;
     }
@@ -51,7 +54,13 @@
 
 @media (min-width: getMedia(sm)) {
     .hamburger-button {
-        --burger-width: 35px;
-        --burger-height: 4px;
+        --burger-line-width: 35px;
+        --burger-line-height: 4px;
+    }
+}
+
+@media (min-width: getMedia(xlg)) {
+    .hamburger-button {
+        display: none;
     }
 }

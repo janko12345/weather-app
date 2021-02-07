@@ -3,16 +3,11 @@ $colors: (
     bg-secondary: #74aece,
 );
 
-$github-width: 40px;
+$github-width: 2.5rem;
 
-// // main header variables
-// $buttons-width: 23px;
-// $buttons-offset: 5px;
-// $buttons-space: calc(#{$buttons-width} + #{$buttons-offset});
-// $buttons-space: calc(#{$buttons-width} + #{$buttons-offset});
-// $hamburger-height: calc(#{$buttons-width} / 8);
-// $hamburger-button-height: calc(#{$hamburger-height} * 5);
-
+// medias just for width
 $medias: (
     sm: 500px,
+    md: 700px,
+    xlg: 1300px,
 );

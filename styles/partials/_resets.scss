@@ -12,6 +12,12 @@ img {
 
 @media (min-width: getMedia(sm)) {
     html {
+        font-size: 18px;
+    }
+}
+
+@media (min-width: getMedia(md)) {
+    html {
         font-size: 20px;
     }
 }
