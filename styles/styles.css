@@ -874,6 +874,10 @@ img {
   padding-left: 0.2em;
 }
 
+.forecasts-legend {
+  font-family: sans-serif;
+}
+
 .legend-module {
   position: fixed;
   top: 0;
@@ -908,7 +912,6 @@ img {
 .legend {
   font-size: 1rem;
   color: #fff;
-  font-family: sans-serif;
   background-color: #000;
   border-radius: 50px;
   padding: 1rem 2rem;
@@ -1011,6 +1014,7 @@ img {
   width: -webkit-fit-content;
   width: -moz-fit-content;
   width: fit-content;
+  max-width: 100%;
 }
 
 .forecasts {
