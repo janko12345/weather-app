@@ -11,7 +11,7 @@
             cursor: pointer;
         }
         &-row {
-            @include flex(space-between);
+            @include flex(space-between, center);
             margin-bottom: 0.5em;
             > * {
                 margin-left: 1.2em;
@@ -22,6 +22,9 @@
         }
         &-row:last-child {
             margin-bottom: 0;
+        }
+        &-img {
+            width: 2rem;
         }
         &-temp {
             @include flex();

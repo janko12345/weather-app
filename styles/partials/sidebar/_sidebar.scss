@@ -4,7 +4,7 @@
     background-color: getColor(bg-primary);
     height: 100%; // not vh just because of webkit bars bug
     min-width: 230px;
-    padding-top: 1rem;
+    padding-top: MIN(1rem, 12px);
     transform: translateX(-100%);
     transition: transform 1s ease-in-out;
     z-index: 980;

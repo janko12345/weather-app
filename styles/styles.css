@@ -61,7 +61,7 @@ img {
   background-color: #89afd1;
   height: 100%;
   min-width: 230px;
-  padding-top: 1rem;
+  padding-top: MIN(1rem, 12px);
   -webkit-transform: translateX(-100%);
           transform: translateX(-100%);
   -webkit-transition: -webkit-transform 1s ease-in-out;
@@ -199,7 +199,7 @@ img {
 }
 
 .sidebar-searchbar {
-  width: 80%;
+  width: 90%;
   margin: 0 auto;
   position: relative;
   padding: 0.3rem 0.5rem;
@@ -216,6 +216,10 @@ img {
   background-color: transparent;
 }
 
+.sidebar-search:focus {
+  outline: none;
+}
+
 .sidebar-search-img {
   font-size: 1.1rem;
   position: absolute;
@@ -224,6 +228,7 @@ img {
           transform: translateY(-50%);
   right: 0.5rem;
   top: 45%;
+  cursor: pointer;
 }
 
 .sidebar-loading {
@@ -241,7 +246,7 @@ img {
   display: none;
 }
 
-.fetch-response-in-process .sidebar-loading {
+.fetch-response-in-proccess .sidebar-loading {
   display: block;
   -webkit-animation: loading 2s linear infinite;
           animation: loading 2s linear infinite;
@@ -344,9 +349,9 @@ img {
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
-  -webkit-box-align: stretch;
-      -ms-flex-align: stretch;
-          align-items: stretch;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
   -webkit-box-orient: horizontal;
   -webkit-box-direction: normal;
       -ms-flex-flow: row nowrap;
@@ -365,6 +370,10 @@ img {
 
 .sidebar-day-row:last-child {
   margin-bottom: 0;
+}
+
+.sidebar-day-img {
+  width: 2rem;
 }
 
 .sidebar-day-temp {
@@ -600,7 +609,7 @@ img {
 
 @media (min-width: 500px) {
   .config {
-    --gear-width: 35px;
+    --gear-width: 33px;
     --switch-width: 20px;
     --switch-offset: 15px;
   }

@@ -17,7 +17,7 @@
         max-width: 100%;
     }
     &-searchbar {
-        width: 80%;
+        width: 90%;
         margin: 0 auto;
         position: relative;
         padding: 0.3rem 0.5rem;
@@ -31,12 +31,16 @@
         width: 100%;
         border: none;
         background-color: transparent;
+        &:focus {
+            outline: none;
+        }
     }
     &-search-img {
         font-size: 1.1rem;
         @include centerByPosition(absolute, y);
         right: 0.5rem;
         top: 45%;
+        cursor: pointer;
     }
     &-loading {
         display: none;
@@ -54,7 +58,7 @@
 }
 
 .fetch-response {
-    &-in-process {
+    &-in-proccess {
         .sidebar-loading {
             display: block;
             animation: loading 2s linear infinite;
