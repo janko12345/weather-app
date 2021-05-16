@@ -53,11 +53,11 @@
             color: #0f0;
         }
     }
-    [data-key] {
+    [data-settings-key] {
         display: inline-block;
         margin-right: 0.4em;
     }
-    [data-value] {
+    [data-settings-value] {
         cursor: pointer;
         display: inline-block;
         margin: 0 0.2em;
@@ -68,7 +68,7 @@
             margin-right: 0;
         }
     }
-    [data-value]:not(.config-data-active) {
+    [data-settings-value]:not(.config-data-active) {
         color: #aaa;
         &:hover {
             color: #fff;

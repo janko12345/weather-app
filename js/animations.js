@@ -106,3 +106,11 @@ legendMod.addEventListener("click", (e) => {
     if (e.target.closest(".legend")) return;
     legendMod.classList.remove("legend-module-active");
 });
+
+export function showLoading() {
+    fetchResponse.classList.add("fetch-response-in-proccess");
+}
+
+export function hideLoading() {
+    fetchResponse.classList.remove("fetch-response-in-proccess");
+}

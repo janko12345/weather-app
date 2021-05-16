@@ -15,6 +15,7 @@
 
 @media (min-width: getMedia(xlg)) {
     .sidebar {
+        min-width: 15%; // doriešiť
         height: auto;
         min-height: 100vh;
         position: static;

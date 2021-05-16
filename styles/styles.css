@@ -78,6 +78,7 @@ img {
 
 @media (min-width: 1300px) {
   .sidebar {
+    min-width: 15%;
     height: auto;
     min-height: 100vh;
     position: static;
@@ -373,7 +374,7 @@ img {
 }
 
 .sidebar-day-img {
-  width: 2rem;
+  width: 2.5rem;
 }
 
 .sidebar-day-temp {
@@ -467,6 +468,7 @@ img {
     -webkit-box-flex: 1;
         -ms-flex-positive: 1;
             flex-grow: 1;
+    min-width: 85%;
   }
 }
 
@@ -580,30 +582,30 @@ img {
   color: #0f0;
 }
 
-.config [data-key] {
+.config [data-settings-key] {
   display: inline-block;
   margin-right: 0.4em;
 }
 
-.config [data-value] {
+.config [data-settings-value] {
   cursor: pointer;
   display: inline-block;
   margin: 0 0.2em;
 }
 
-.config [data-value]:nth-child(2) {
+.config [data-settings-value]:nth-child(2) {
   margin-left: 0;
 }
 
-.config [data-value]:last-child {
+.config [data-settings-value]:last-child {
   margin-right: 0;
 }
 
-.config [data-value]:not(.config-data-active) {
+.config [data-settings-value]:not(.config-data-active) {
   color: #aaa;
 }
 
-.config [data-value]:not(.config-data-active):hover {
+.config [data-settings-value]:not(.config-data-active):hover {
   color: #fff;
 }
 
@@ -1042,6 +1044,7 @@ img {
           flex-flow: row nowrap;
   gap: 0;
   overflow: auto;
+  max-width: 100%;
 }
 
 .forecast {
@@ -1120,7 +1123,7 @@ img {
 }
 
 .forecast-info-img {
-  width: 1.4rem;
+  width: 1.6rem;
 }
 
 .forecast-info-data {

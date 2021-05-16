@@ -22,7 +22,7 @@
                 <div class="sidebar-header">
                     <div class="sidebar-header-text">
                         <p class="sidebar-title">Forecast for</p>
-                        <h3 class="sidebar-city">Dolná Streda</h3>
+                        <h3 class="sidebar-city"></h3>
                     </div>
                     <div class="sidebar-searchbar">
                         <input type="text" class="sidebar-search" />
@@ -76,65 +76,104 @@
                             </div>
                             <div id="format-menu">
                                 <p class="config-data">
-                                    <span data-key="time">time:</span>
-                                    <span data-value="24">24</span>/<span
-                                        class="config-data-active"
-                                        data-value="12"
+                                    <span>time:</span>
+                                    <span
+                                        data-settings-key="time"
+                                        data-settings-value="24"
+                                        >24</span
+                                    >/<span
+                                        data-settings-key="time"
+                                        data-settings-value="12"
                                         >12</span
                                     >
                                 </p>
                                 <p class="config-data">
-                                    <span data-key="temp">temp:</span>
+                                    <span>temp:</span>
                                     <span
-                                        class="config-data-active"
-                                        data-value="C"
+                                        data-settings-key="temp"
+                                        data-settings-value="c"
                                         >°C</span
-                                    >/<span data-value="F">°F</span>
+                                    >/<span
+                                        data-settings-key="temp"
+                                        data-settings-value="f"
+                                        >°F</span
+                                    >
                                 </p>
                                 <p class="config-data">
-                                    <span data-key="volume">volume:</span>
-                                    <span data-value="mm">mm</span>/<span
-                                        class="config-data-active"
-                                        data-value="in"
+                                    <span>volume:</span>
+                                    <span
+                                        data-settings-key="volume"
+                                        data-settings-value="mm"
+                                        >mm</span
+                                    >/<span
+                                        data-settings-key="volume"
+                                        data-settings-value="in"
                                         >in</span
                                     >
                                 </p>
                                 <p class="config-data">
-                                    <span data-key="speed">speed:</span>
+                                    <span>speed:</span>
                                     <span
-                                        class="config-data-active"
-                                        data-value="kph"
+                                        data-settings-key="speed"
+                                        data-settings-value="kph"
                                         >kph</span
-                                    >/<span data-value="mph">mph</span>
+                                    >/<span
+                                        data-settings-key="speed"
+                                        data-settings-value="mph"
+                                        >mph</span
+                                    >
+                                </p>
+                                <p class="config-data">
+                                    <span>pressure:</span>
+                                    <span
+                                        data-settings-key="pressure"
+                                        data-settings-value="mb"
+                                        >mb</span
+                                    >/<span
+                                        data-settings-key="pressure"
+                                        data-settings-value="in"
+                                        >in</span
+                                    >
                                 </p>
                             </div>
                             <div id="other-menu" class="hide">
                                 <p class="config-data">
-                                    <span data-key="gif">gif:</span>
-                                    <span data-value="true">on</span>/<span
-                                        class="config-data-active"
-                                        data-value="false"
+                                    <span>gif:</span>
+                                    <span
+                                        data-settings-key="gif"
+                                        data-settings-value="true"
+                                        >on</span
+                                    >/<span
+                                        data-settings-key="gif"
+                                        data-settings-value="false"
                                         >off</span
                                     >
                                 </p>
                                 <p class="config-data">
-                                    <span data-key="astronomy">astronomy:</span>
-                                    <span data-value="true">on</span>/<span
-                                        class="config-data-active"
-                                        data-value="false"
+                                    <span>astronomy:</span>
+                                    <span
+                                        data-settings-key="astronomy"
+                                        data-settings-value="true"
+                                        >on</span
+                                    >/<span
+                                        data-settings-key="astronomy"
+                                        data-settings-value="false"
                                         >off</span
                                     >
                                 </p>
                                 <p class="config-data">
-                                    <span data-key="hour-interval"
-                                        >hour interval:</span
-                                    >
-                                    <span data-value="2">1</span>/<span
-                                        data-value="2"
+                                    <span>hour interval:</span>
+                                    <span
+                                        data-settings-key="hourInterval"
+                                        data-settings-value="1"
+                                        >1</span
+                                    >/<span
+                                        data-settings-key="hourInterval"
+                                        data-settings-value="2"
                                         >2</span
                                     >/<span
-                                        class="config-data-active"
-                                        data-value="3"
+                                        data-settings-key="hourInterval"
+                                        data-settings-value="3"
                                         >3</span
                                     >
                                 </p>
@@ -145,50 +184,66 @@
                 <div class="body">
                     <div class="astronomy-wrapper">
                         <i
-                            class="fas fa-lg fa-arrow-up astronomy-visibility-toggler"
+                            class="
+                                fas
+                                fa-lg fa-arrow-up
+                                astronomy-visibility-toggler
+                            "
                         ></i>
                         <div class="astronomy">
                             <div class="astronomy-info-toggler"></div>
                             <div class="astronomy-info">
                                 <div class="astronomy-info-pair">
                                     <div
-                                        class="astronomy-info-moon-rise astronomy-info-moon"
+                                        class="
+                                            astronomy-info-moon-rise
+                                            astronomy-info-moon
+                                        "
                                     >
                                         <p class="astronomy-info-text">
-                                            moon rises
+                                            moon rises:
                                             <span id="moon-rise-time"
-                                                >20:00</span
+                                                >- - -</span
                                             >
                                         </p>
                                     </div>
                                     <div
-                                        class="astronomy-info-sun-rise astronomy-info-sun"
+                                        class="
+                                            astronomy-info-sun-rise
+                                            astronomy-info-sun
+                                        "
                                     >
                                         <p class="astronomy-info-text">
-                                            sun rises
+                                            sun rises:
                                             <span id="sun-rise-time"
-                                                >06:00</span
+                                                >- - -</span
                                             >
                                         </p>
                                     </div>
                                 </div>
                                 <div class="astronomy-info-pair">
                                     <div
-                                        class="astronomy-info-moon-set astronomy-info-moon"
+                                        class="
+                                            astronomy-info-moon-set
+                                            astronomy-info-moon
+                                        "
                                     >
                                         <p class="astronomy-info-text">
-                                            moon sets
+                                            moon sets:
                                             <span id="moon-set-time"
-                                                >05:00</span
+                                                >- - -</span
                                             >
                                         </p>
                                     </div>
                                     <div
-                                        class="astronomy-info-sun-set astronomy-info-sun"
+                                        class="
+                                            astronomy-info-sun-set
+                                            astronomy-info-sun
+                                        "
                                     >
                                         <p class="astronomy-info-text">
-                                            sun sets
-                                            <span id="sun-set-time">19:00</span>
+                                            sun sets:
+                                            <span id="sun-set-time">- - -</span>
                                         </p>
                                     </div>
                                 </div>
@@ -205,7 +260,10 @@
                                     <img
                                         src="assets/buttons/hour-dropdown.png"
                                         alt="toggler"
-                                        class="forecasts-menu-img forecasts-dropdown-img"
+                                        class="
+                                            forecasts-menu-img
+                                            forecasts-dropdown-img
+                                        "
                                     />
                                 </div>
                                 <div class="forecasts-dropdown-menu">
@@ -222,7 +280,10 @@
                                         2 hours
                                     </p>
                                     <p
-                                        class="forecasts-dropdown-item forecasts-dropdown-item-active"
+                                        class="
+                                            forecasts-dropdown-item
+                                            forecasts-dropdown-item-active
+                                        "
                                         data-value="3"
                                     >
                                         3 hours
@@ -237,7 +298,10 @@
                                     <img
                                         src="assets/buttons/switch-info.png"
                                         alt="swap arrows"
-                                        class="forecasts-menu-img forecasts-switch-info-img"
+                                        class="
+                                            forecasts-menu-img
+                                            forecasts-switch-info-img
+                                        "
                                     />
                                 </div>
                             </div>
@@ -354,179 +418,10 @@
                             </div>
                         </div>
                         <!-- hour forecasts -->
-                        <div class="forecasts">
-                            <div class="forecast">
-                                <div class="forecast-header">
-                                    <p class="forecast-hour">15:30</p>
-                                    <img
-                                        src="assets/primary-info/raining.png"
-                                        alt="weather icon"
-                                        class="forecast-main-icon"
-                                    />
-                                </div>
-                                <div
-                                    class="forecast-infos forecast-primary-infos"
-                                >
-                                    <div class="forecast-info-column">
-                                        <div class="forecast-info">
-                                            <img
-                                                src="assets/primary-info/thermometer.png"
-                                                alt="thermometer"
-                                                class="forecast-info-img"
-                                            />
-                                            <p class="forecast-info-data">
-                                                -23 C
-                                            </p>
-                                        </div>
-                                        <div class="forecast-info">
-                                            <img
-                                                src="assets/primary-info/feels-like.png"
-                                                alt="man next to thermometer"
-                                                class="forecast-info-img"
-                                            />
-                                            <p class="forecast-info-data">
-                                                -32 C
-                                            </p>
-                                        </div>
-                                    </div>
-                                    <div class="forecast-info-column">
-                                        <div class="forecast-info">
-                                            <img
-                                                src="assets/primary-info/snowing.png"
-                                                alt="snow cloud"
-                                                class="forecast-info-img"
-                                            />
-                                            <p class="forecast-info-data">
-                                                100%
-                                            </p>
-                                        </div>
-                                        <div class="forecast-info">
-                                            <img
-                                                src="assets/primary-info/wind-gust.png"
-                                                alt="wind gust"
-                                                class="forecast-info-img"
-                                            />
-                                            <p class="forecast-info-data">
-                                                12kph
-                                            </p>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div
-                                    class="forecast-infos forecast-secondary-infos hide"
-                                >
-                                    <div class="forecast-info-column">
-                                        <div class="forecast-info">
-                                            <img
-                                                src="assets/secondary-info/humidity.png"
-                                                alt="rain drop"
-                                                class="forecast-info-img"
-                                            />
-                                            <p class="forecast-info-data">
-                                                100%
-                                            </p>
-                                        </div>
-                                        <div class="forecast-info">
-                                            <img
-                                                src="assets/secondary-info/clouds.png"
-                                                alt="man next to thermometer"
-                                                class="forecast-info-img"
-                                            />
-                                            <p class="forecast-info-data">
-                                                100%
-                                            </p>
-                                        </div>
-                                    </div>
-                                    <div class="forecast-info-column">
-                                        <div class="forecast-info">
-                                            <img
-                                                src="assets/secondary-info/rain-volume.png"
-                                                alt="ran drops"
-                                                class="forecast-info-img"
-                                            />
-                                            <p class="forecast-info-data">
-                                                33mm
-                                            </p>
-                                        </div>
-
-                                        <div class="forecast-info">
-                                            <img
-                                                src="assets/secondary-info/barometer.png"
-                                                alt="barometer"
-                                                class="forecast-info-img"
-                                            />
-                                            <p class="forecast-info-data">
-                                                5bar
-                                            </p>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+                        <div class="forecasts"></div>
                     </div>
                     <!-- current forecast -->
-                    <div class="current-wrapper">
-                        <p class="current-time">now:</p>
-                        <div class="current">
-                            <div class="current-infos">
-                                <div class="current-infos-row">
-                                    <div class="current-info">
-                                        <img
-                                            src="assets/primary-info/thermometer.png"
-                                            alt="thermometer"
-                                            class="current-info-img"
-                                        />
-                                        <p class="current-info-data">-55 C</p>
-                                    </div>
-                                    <div class="current-info">
-                                        <img
-                                            src="assets/primary-info/feels-like.png"
-                                            alt="man next to thermometer"
-                                            class="current-info-img"
-                                        />
-                                        <p class="current-info-data">-100 C</p>
-                                    </div>
-                                    <div class="current-info">
-                                        <img
-                                            src="assets/primary-info/snowing.png"
-                                            alt="snowing cloud"
-                                            class="current-info-img"
-                                        />
-                                        <p class="current-info-data">100%</p>
-                                    </div>
-                                </div>
-                                <div class="current-infos-row">
-                                    <div class="current-info">
-                                        <img
-                                            src="assets/secondary-info/snow-volume.png"
-                                            alt="snow flake"
-                                            class="current-info-img"
-                                        />
-                                        <p class="current-info-data">20mm</p>
-                                    </div>
-                                    <div class="current-info">
-                                        <img
-                                            src="assets/secondary-info/humidity.png"
-                                            alt="rain drop humidity"
-                                            class="current-info-img"
-                                        />
-                                        <p class="current-info-data">100%</p>
-                                    </div>
-                                    <div class="current-info">
-                                        <img
-                                            src="assets/secondary-info/clouds.png"
-                                            alt="clouds"
-                                            class="current-info-img"
-                                        />
-                                        <p class="current-info-data">100%</p>
-                                    </div>
-                                </div>
-                            </div>
-                            <p class="current-description">
-                                Today is going to be windy, tak your coat
-                            </p>
-                        </div>
-                    </div>
+                    <div class="current-wrapper"></div>
                     <a
                         target="_blank"
                         class="github"
@@ -545,8 +440,6 @@
             src="https://kit.fontawesome.com/129caeb1d2.js"
             crossorigin="anonymous"
         ></script>
-        <script src="js/createContent.js"></script>
-        <script src="js/test-animations.js"></script>
-        <script src="js/sidebar.js"></script>
+        <script type="module" src="js/main.js"></script>
     </body>
 </html>
