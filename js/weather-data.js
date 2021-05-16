@@ -1,16 +1,33 @@
-export async function getWeatherData(lat, lon) {
+export async function getWeatherDataByCoords(lat, lon) {
     try {
-        let [cityData, weatherData] = await Promise.all([
-            fetch(
-                `https://nominatim.openstreetmap.org/reverse?format=json&lat=${lat}&lon=${lon}&zoom=18&addressdetails=1` // needed to search for city name, cause weather api has incorrect city naming
-            ),
-            fetch(
-                `https://api.weatherapi.com/v1/forecast.json?key=cce7d49959c1448d9bb185355211201&q=${lat},${lon}&days=3`
-            ),
-        ]).then((responses) => Promise.all(responses.map((res) => res.json())));
-        let { village, suburb, state, town } = cityData.address;
-        weatherData.location.name = village || town || suburb;
-        weatherData.location.region = state;
+        let weatherData = await fetch(
+            `https://api.weatherapi.com/v1/forecast.json?key=cce7d49959c1448d9bb185355211201&q=${lat},${lon}&days=3`
+        ).then((res) => res.json());
+        console.log(weatherData);
+        return weatherData;
+    } catch (e) {
+        console.log(e);
+    }
+}
+
+export async function getWeatherDataByCity(cityName) {
+    try {
+        let weatherData = await fetch(
+            `https://api.weatherapi.com/v1/forecast.json?key=cce7d49959c1448d9bb185355211201&q=${cityName}&days=3`
+        ).then((res) => res.json());
+        console.log(weatherData);
+        return weatherData;
+    } catch (e) {
+        console.log(e);
+    }
+}
+
+export async function getWeatherDataByIp(ipAddress) {
+    try {
+        let weatherData = await fetch(
+            `https://api.weatherapi.com/v1/forecast.json?key=cce7d49959c1448d9bb185355211201&q=${ipAddress}&days=3`
+        ).then((res) => res.json());
+        console.log(weatherData);
         return weatherData;
     } catch (e) {
         console.log(e);

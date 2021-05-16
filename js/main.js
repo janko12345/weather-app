@@ -2,8 +2,12 @@ import { saveToStorage } from "./helper-functions.js";
 import {} from "./animations.js";
 import { pageLoadRender } from "./initial-render.js";
 import { updateSettings, setInitialSettings, getSettings } from "./settings.js";
-import { getCoords } from "./user-location.js";
-import { getWeatherData } from "./weather-data.js";
+import { getCoords, getIpAddress } from "./track-user.js";
+import {
+    getWeatherDataByCity,
+    getWeatherDataByCoords,
+    getWeatherDataByIp,
+} from "./weather-data.js";
 import { renderAll } from "./renderData.js";
 import { showLoading, hideLoading } from "./animations.js";
 
@@ -15,7 +19,22 @@ pageLoadRender();
 // rendering elements with actual data
 
 let coords = await getCoords();
-let weatherData = await getWeatherData(coords.latitude, coords.longitude);
+let weatherData;
+
+if (coords !== null) {
+    weatherData = await getWeatherDataByCoords(
+        coords.latitude,
+        coords.longitude
+    );
+} else if (coords === null) {
+    let ipAddress = await getIpAddress();
+    if (ipAddress !== null) {
+        weatherData = await getWeatherDataByIp(ipAddress);
+    } else {
+        weatherData = await getWeatherDataByCity("Bratislava");
+    }
+}
+
 saveToStorage("weather-data", weatherData);
 let dayToRender = 0; // rendering data on main section for particular day, in case of page load its first day
 renderAll(weatherData, dayToRender);
