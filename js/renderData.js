@@ -1,5 +1,5 @@
 import {
-    createCurrentWeatherEls,
+    createCurrentWeatherEl,
     createDayEl,
     createHourEl,
 } from "./elementsFactory.js";
@@ -18,6 +18,10 @@ import { getSettings } from "./settings.js";
 
 function renderSidebar(weatherData) {
     clearDayForecasts();
+
+    let city = document.querySelector(".sidebar-city");
+    city.textContent = weatherData.location.name;
+
     let forecastDays = weatherData.forecast.forecastday;
     let todayForecast = forecastDays[0];
     let nextDaysForecast = forecastDays.slice(1);
@@ -83,11 +87,11 @@ export function renderHourForecasts(weatherData, index) {
 function renderCurrentWeather(weatherData, index) {
     clearCurrentWeather();
 
-    let currentCnt = document.querySelector(".current-wrapper");
+    let current = document.querySelector(".current");
     let currentData = weatherData.current;
-    let [currentTime, current] = createCurrentWeatherEls(currentData);
-    currentCnt.appendChild(currentTime);
-    currentCnt.appendChild(current);
+
+    let currentInfos = createCurrentWeatherEl(currentData);
+    current.appendChild(currentInfos);
 }
 
 export function renderMainPage(weatherData, index) {

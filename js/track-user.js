@@ -4,7 +4,7 @@ function getPosition(options) {
     });
 }
 
-export async function getCoords() {
+export async function getUserCoords() {
     try {
         let position = await getPosition();
         let { latitude, longitude } = position.coords;

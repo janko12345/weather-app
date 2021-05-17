@@ -34,7 +34,6 @@ export function createDayEl(dayData, index) {
 }
 
 export function createHourEl(hourData) {
-    console.log(hourData);
     let date = new Date(hourData.time);
     let hours = getLeadingZero(date.getHours());
     let minutes = getLeadingZero(date.getMinutes());
@@ -148,14 +147,14 @@ class="
         <img
             src="${
                 willSnow
-                    ? "assets/secondary-info/rain-volume.png"
-                    : "assets/secondary-info/snow-volume.png"
+                    ? "assets/secondary-info/snow-volume.png"
+                    : "assets/secondary-info/rain-volume.png"
             }"
             alt="ran drops"
             class="forecast-info-img"
         />
         <p class="forecast-info-data">
-        ${isMm ? hourData.precip_mm + "mm" : hourData.prepic_in + "in"}
+        ${isMm ? hourData.precip_mm + "mm" : hourData.precip_in + "in"}
         </p>
     </div>
 
@@ -174,22 +173,13 @@ class="
     return forecast;
 }
 
-export function createCurrentWeatherEls(currentData) {
+export function createCurrentWeatherEl(currentData) {
     let settings = getSettings();
+    let current = document.querySelector(".current");
+
     let isCelsius = settings.temp === "c";
     let isKph = settings.speed === "kph";
     let isMb = settings.pressure === "mb";
-
-    let currentTime = document.createElement("div");
-    currentTime.classList.add("current-time");
-    currentTime.textContent = "now:";
-
-    let current = document.createElement("div");
-    current.classList.add("current");
-
-    let currentDescription = document.createElement("div");
-    currentDescription.classList.add("current-description");
-    currentDescription.textContent = currentData.condition.text;
 
     let currentInfos = document.createElement("div");
     currentInfos.classList.add("current-infos");
@@ -261,8 +251,6 @@ export function createCurrentWeatherEls(currentData) {
             <p class="current-info-data">${currentData.cloud + "%"}</p>
         </div>
     </div>`;
-    current.appendChild(currentInfos);
-    current.appendChild(currentDescription);
 
-    return [currentTime, current];
+    return currentInfos;
 }

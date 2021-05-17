@@ -11,6 +11,6 @@ export function clearHourForecasts() {
 }
 
 export function clearCurrentWeather() {
-    let currentCnt = document.querySelector(".current-wrapper");
+    let currentCnt = document.querySelector(".current");
     currentCnt.innerHTML = "";
 }

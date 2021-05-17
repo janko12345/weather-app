@@ -58,7 +58,7 @@
 }
 
 .fetch-response {
-    &-in-proccess {
+    &-in-process {
         .sidebar-loading {
             display: block;
             animation: loading 2s linear infinite;

@@ -1,116 +1,129 @@
-let sidebar = document.querySelector(".sidebar");
-let search = sidebar.querySelector(".sidebar-search");
-let fetchResponse = sidebar.querySelector(".fetch-response");
-let burger = sidebar.querySelector(".hamburger-button");
-let main = document.querySelector("main");
-let gear = main.querySelector(".config-gear-icon");
-let configMenu = main.querySelector(".config-menu");
-let formatMenu = configMenu.querySelector("#format-menu");
-let otherMenu = configMenu.querySelector("#other-menu");
-let configSwitch = configMenu.querySelector(".config-menu-switch");
+export function toggleSidebar() {
+    let sidebar = document.querySelector(".sidebar");
+    let burger = sidebar.querySelector(".hamburger-button");
 
-let astronomyCnt = document.querySelector(".astronomy-wrapper");
-let astronomy = document.querySelector(".astronomy");
-let astronomyInfoToggler = main.querySelector(".astronomy-info-toggler");
-let astronomyVisibilityToggler = main.querySelector(
-    ".astronomy-visibility-toggler"
-);
-let dropdownBtn = main.querySelector("#dropdown-button");
-let dropdownImg = dropdownBtn.querySelector(".forecasts-dropdown-img");
-let dropdownMenu = main.querySelector(".forecasts-dropdown-menu");
-let switchInfoBtn = main.querySelector("#switch-info-button");
-let switchInfoImg = switchInfoBtn.querySelector(".forecasts-switch-info-img");
-let legendBtn = main.querySelector("#legend-button");
-let legendMod = document.querySelector(".legend-module");
-let primaryInfos = [...main.querySelectorAll(".forecast-primary-infos")];
-let secondaryInfos = [...main.querySelectorAll(".forecast-secondary-infos")];
-
-let failedTO;
-search.addEventListener("keyup", (e) => {
-    clearTimeout(failedTO);
-    fetchResponse.classList.remove("fetch-response-failed");
-    if (e.key.toLowerCase() === "enter") {
-        fetchResponse.classList.add("fetch-response-in-process");
-        setTimeout(() => {
-            fetchResponse.classList.remove("fetch-response-in-process");
-            fetchResponse.classList.add("fetch-response-failed");
-            failedTO = setTimeout(() => {
-                fetchResponse.classList.remove("fetch-response-failed");
-            }, 3000);
-        }, 2000);
-    }
-});
-
-burger.addEventListener("click", (e) => {
     sidebar.classList.toggle("sidebar-show");
     burger.classList.toggle("hamburger-button-active");
-});
+}
 
-gear.addEventListener("click", (e) => {
+export function toggleConfig() {
+    let gear = document.querySelector(".config-gear-icon");
+    let configMenu = document.querySelector(".config-menu");
+
     gear.classList.toggle("config-gear-icon-active");
     configMenu.classList.toggle("config-menu-active");
-});
+}
 
-configSwitch.addEventListener("click", (e) => {
+export function switchConfigInfo() {
+    let formatMenu = document.querySelector("#format-menu");
+    let otherMenu = document.querySelector("#other-menu");
+
     formatMenu.classList.toggle("hide");
     otherMenu.classList.toggle("hide");
-});
+}
 
-astronomyInfoToggler.addEventListener("click", (e) => {
+export function switchSunMoon() {
+    let astronomyCnt = document.querySelector(".astronomy-wrapper");
+    let astronomyInfoToggler = document.querySelector(
+        ".astronomy-info-toggler"
+    );
+
     astronomyInfoToggler.classList.toggle("astronomy-info-toggler-active");
     astronomyCnt.classList.toggle("astronomy-info-toggled");
-});
+}
 
-astronomyVisibilityToggler.addEventListener("click", (e) => {
+export function toggleAstronomyVisibility() {
+    let astronomy = document.querySelector(".astronomy");
+    let astronomyVisibilityToggler = document.querySelector(
+        ".astronomy-visibility-toggler"
+    );
+
     astronomy.classList.toggle("astronomy-hide");
     astronomyVisibilityToggler.classList.toggle(
         "astronomy-visibility-toggler-rolled-up"
     );
-});
+}
 
-dropdownBtn.addEventListener("click", (e) => {
+export function showDropdown() {
+    let dropdownImg = document.querySelector(".forecasts-dropdown-img");
+    let dropdownMenu = document.querySelector(".forecasts-dropdown-menu");
+
     dropdownImg.classList.toggle("forecasts-dropdown-img-active");
     dropdownMenu.classList.toggle("forecasts-dropdown-menu-active");
-});
+}
 
-dropdownMenu.addEventListener("click", (e) => {
+export function hideDropdown(e) {
+    let dropdownImg = document.querySelector(".forecasts-dropdown-img");
+    let dropdownMenu = document.querySelector(".forecasts-dropdown-menu");
+
     if (e.target.classList.contains("forecasts-dropdown-item")) {
-        dropdownMenu
-            .querySelector(".forecasts-dropdown-item-active")
-            .classList.remove("forecasts-dropdown-item-active");
-        e.target.classList.add("forecasts-dropdown-item-active");
         dropdownMenu.classList.remove("forecasts-dropdown-menu-active");
         dropdownImg.classList.remove("forecasts-dropdown-img-active");
     }
-});
+}
 
-switchInfoBtn.addEventListener("click", (e) => {
+export function switchForecastInfo() {
+    let switchInfoImg = document.querySelector(".forecasts-switch-info-img");
+    let secondaryInfos = [
+        ...document.querySelectorAll(".forecast-secondary-infos"),
+    ];
+    let primaryInfos = [
+        ...document.querySelectorAll(".forecast-primary-infos"),
+    ];
+
     secondaryInfos.forEach((secondaryInfo) =>
         secondaryInfo.classList.toggle("hide")
     );
     primaryInfos.forEach((primaryInfo) => primaryInfo.classList.toggle("hide"));
-    if (switchInfoImg.classList.contains("switch-info-img-rotate-180")) {
-        switchInfoImg.classList.add("switch-info-img-rotate-360");
-        switchInfoImg.classList.remove("switch-info-img-rotate-180");
-    } else if (switchInfoImg.classList.contains("switch-info-img-rotate-360")) {
-        switchInfoImg.classList.remove("switch-info-img-rotate-360");
-        switchInfoImg.classList.add("switch-info-img-rotate-180");
-    } else switchInfoImg.classList.add("switch-info-img-rotate-180");
-});
+    rotate360Right(switchInfoImg);
+}
 
-legendBtn.addEventListener("click", (e) => {
+export function showLegend() {
+    let legendMod = document.querySelector(".legend-module");
+
     legendMod.classList.add("legend-module-active");
-});
+}
 
-legendMod.addEventListener("click", (e) => {
-    if (e.target.closest(".legend")) return;
+export function hideLegend(e) {
+    if (e.target.closest(".legend")) {
+        // clicked on legend, dont close
+        return;
+    }
+    let legendMod = document.querySelector(".legend-module");
+
     legendMod.classList.remove("legend-module-active");
-});
+}
 
 export function showLoading() {
-    fetchResponse.classList.add("fetch-response-in-proccess");
+    let fetchResponse = document.querySelector(".fetch-response");
+
+    fetchResponse.classList.add("fetch-response-in-process");
 }
 
 export function hideLoading() {
-    fetchResponse.classList.remove("fetch-response-in-proccess");
+    let fetchResponse = document.querySelector(".fetch-response");
+
+    fetchResponse.classList.remove("fetch-response-in-process");
+}
+
+export function showErr() {
+    let fetchResponse = document.querySelector(".fetch-response");
+
+    fetchResponse.classList.add("fetch-response-failed");
+}
+
+export function hideErr() {
+    let fetchResponse = document.querySelector(".fetch-response");
+
+    fetchResponse.classList.remove("fetch-response-failed");
+}
+
+function rotate360Right(element) {
+    if (element.classList.contains("switch-info-img-rotate-180")) {
+        element.classList.add("switch-info-img-rotate-360");
+        element.classList.remove("switch-info-img-rotate-180");
+    } else if (element.classList.contains("switch-info-img-rotate-360")) {
+        element.classList.remove("switch-info-img-rotate-360");
+        element.classList.add("switch-info-img-rotate-180");
+    } else element.classList.add("switch-info-img-rotate-180");
 }
