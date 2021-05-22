@@ -7,7 +7,7 @@ import {
     getFromStorage,
     isEvent,
     saveToStorage,
-    to24HourCycle,
+    to24HourFormat,
 } from "./helper-functions.js";
 import {
     clearCurrentWeather,
@@ -16,9 +16,51 @@ import {
 } from "./remove-elements.js";
 import { getSettings } from "./settings.js";
 
-function renderSidebar(weatherData) {
-    clearDayForecasts();
+export function renderAll(weatherData, index) {
+    if (isEvent(weatherData)) {
+        let event = weatherData;
+        weatherData = getFromStorage("weather-data");
 
+        let dayIndex = event.target.closest("[data-day-index]");
+        let isSettings = event.target.hasAttribute("data-settings-value");
+
+        if (dayIndex !== null) {
+            index = parseInt(dayIndex.getAttribute("data-day-index"));
+        } else if (isSettings) {
+            index = getFromStorage("rendered-day");
+        } else {
+            return;
+        }
+    }
+
+    renderSidebar(weatherData);
+    renderMainPage(weatherData, index);
+}
+
+export function renderMainPage(weatherData, index) {
+    if (isEvent(weatherData)) {
+        let event = weatherData;
+        weatherData = getFromStorage("weather-data");
+
+        let dayIndex = event.target.closest("[data-day-index]");
+        let isSettings = event.target.hasAttribute("data-settings-value");
+
+        if (dayIndex !== null) {
+            index = parseInt(dayIndex.getAttribute("data-day-index"));
+        } else if (isSettings) {
+            index = getFromStorage("rendered-day");
+        } else {
+            return;
+        }
+    }
+    saveToStorage("rendered-day", index);
+
+    renderSunInfo(weatherData, index);
+    renderHourForecasts(weatherData, index);
+    renderCurrentWeather(weatherData, index);
+}
+
+function renderSidebar(weatherData) {
     let city = document.querySelector(".sidebar-city");
     city.textContent = weatherData.location.name;
 
@@ -28,6 +70,9 @@ function renderSidebar(weatherData) {
 
     let todayCnt = document.querySelector(".sidebar-today");
     let nextDaysCnt = document.querySelector(".sidebar-next-days");
+
+    clearDayForecasts();
+
     todayCnt.appendChild(createDayEl(todayForecast, 0));
     nextDaysForecast.forEach((dayForecast, index) => {
         nextDaysCnt.appendChild(createDayEl(dayForecast, ++index));
@@ -47,10 +92,10 @@ function renderSunInfo(weatherData, index) {
     let { sunrise, sunset, moonrise, moonset } = dayToRender.astro;
 
     if (settings.time + "" === "24") {
-        sunrise = to24HourCycle(sunrise);
-        sunset = to24HourCycle(sunset);
-        moonrise = to24HourCycle(moonrise);
-        moonset = to24HourCycle(moonset);
+        sunrise = to24HourFormat(sunrise);
+        sunset = to24HourFormat(sunset);
+        moonrise = to24HourFormat(moonrise);
+        moonset = to24HourFormat(moonset);
     }
 
     sunRise.textContent = sunrise;
@@ -60,24 +105,29 @@ function renderSunInfo(weatherData, index) {
 }
 
 export function renderHourForecasts(weatherData, index) {
-    // this condition is needed here, because this function is going to be called separately unlike other renders
-    if (isEvent(weatherData)) {
-        let dayIndex = weatherData.target.closest("[data-day-index]");
-        weatherData = getFromStorage("weather-data");
-        index =
-            dayIndex !== null
-                ? dayIndex.getAttribute("data-day-index")
-                : getFromStorage("rendered-day");
-    }
-    clearHourForecasts();
     let forecasts = document.querySelector(".forecasts");
     let settings = getSettings();
     let hourInterval = parseInt(settings.hourInterval);
+
+    // this condition is needed here, because this function is going to be called separately by hour forecast dropdown unlike other renders
+    if (isEvent(weatherData)) {
+        let event = weatherData;
+        weatherData = getFromStorage("weather-data");
+
+        let intervalSpan = event.target.getAttribute("data-interval-span");
+        if (intervalSpan === null) {
+            return; // not clicked dedicated element from dropdown
+        } else {
+            hourInterval = parseInt(intervalSpan);
+            index = getFromStorage("rendered-day");
+        }
+    }
 
     let forecastDays = weatherData.forecast.forecastday;
     let dayToRender = forecastDays[index];
     let hoursData = dayToRender.hour;
 
+    clearHourForecasts();
     for (let i = 0; i < dayToRender.hour.length; i += hourInterval) {
         let hourData = hoursData[i];
         forecasts.appendChild(createHourEl(hourData));
@@ -92,34 +142,4 @@ function renderCurrentWeather(weatherData, index) {
 
     let currentInfos = createCurrentWeatherEl(currentData);
     current.appendChild(currentInfos);
-}
-
-export function renderMainPage(weatherData, index) {
-    if (isEvent(weatherData)) {
-        let dayIndex = weatherData.target.closest("[data-day-index]");
-        weatherData = getFromStorage("weather-data");
-        index =
-            dayIndex !== null
-                ? dayIndex.getAttribute("data-day-index")
-                : getFromStorage("rendered-day");
-    }
-    saveToStorage("rendered-day", index);
-
-    renderSunInfo(weatherData, index);
-    renderHourForecasts(weatherData, index);
-    renderCurrentWeather(weatherData, index);
-}
-
-export function renderAll(weatherData, index) {
-    if (isEvent(weatherData)) {
-        let dayIndex = weatherData.target.closest("[data-day-index]");
-        weatherData = getFromStorage("weather-data");
-        index =
-            dayIndex !== null
-                ? dayIndex.getAttribute("data-day-index")
-                : getFromStorage("rendered-day");
-    }
-
-    renderSidebar(weatherData);
-    renderMainPage(weatherData, index);
 }

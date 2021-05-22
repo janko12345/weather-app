@@ -11,12 +11,16 @@ import {
     switchForecastInfo,
     showLoading,
 } from "./animations.js";
-import { renderAll } from "./renderData.js";
+import {
+    renderAll,
+    renderHourForecasts,
+    renderMainPage,
+} from "./render-data.js";
 import { getWeatherData } from "./weather-data.js";
 
+let sidebarDays = document.querySelector(".sidebar-days");
 let gear = document.querySelector(".config-gear-icon");
 let search = document.querySelector(".sidebar-search");
-let fetchResponse = document.querySelector(".fetch-response");
 let main = document.querySelector("main");
 let configSwitch = document.querySelector(".config-menu-switch");
 let burger = document.querySelector(".hamburger-button");
@@ -30,11 +34,14 @@ let switchInfoBtn = main.querySelector("#switch-info-button");
 let legendBtn = main.querySelector("#legend-button");
 let legendMod = document.querySelector(".legend-module");
 
+sidebarDays.addEventListener("click", renderMainPage);
+
 search.addEventListener("keyup", getWeatherData);
 
 burger.addEventListener("click", toggleSidebar);
 
 gear.addEventListener("click", toggleConfig);
+gear.addEventListener("click", renderAll);
 
 configSwitch.addEventListener("click", switchConfigInfo);
 
@@ -45,6 +52,7 @@ astronomyVisibilityToggler.addEventListener("click", toggleAstronomyVisibility);
 dropdownBtn.addEventListener("click", showDropdown);
 
 dropdownMenu.addEventListener("click", hideDropdown);
+dropdownMenu.addEventListener("click", renderHourForecasts);
 
 switchInfoBtn.addEventListener("click", switchForecastInfo);
 

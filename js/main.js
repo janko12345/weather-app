@@ -1,6 +1,6 @@
 import { updateSettings, setInitialSettings, getSettings } from "./settings.js";
-import { pageLoadBlankRender, pageLoadDataRender } from "./initial-render.js";
-import { renderAll } from "./renderData.js";
+import { pageLoadBlankRender, pageLoadDataRender } from "./render-initial.js";
+import { renderAll } from "./render-data.js";
 import {} from "./events.js"; // importing this just because events to be assigned
 
 if (getSettings() === null) {

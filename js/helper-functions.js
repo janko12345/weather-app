@@ -24,7 +24,7 @@ export function isEvent(whatever) {
     return whatever instanceof Event;
 }
 
-export function to24HourCycle(timeString) {
+export function to24HourFormat(timeString) {
     if (!timeString.includes(":")) {
         return timeString;
     } else {
@@ -35,6 +35,14 @@ export function to24HourCycle(timeString) {
         }
         return `${hours}:${minutes}`;
     }
+}
+
+export function to12HourFormat(dateString) {
+    return new Date(dateString).toLocaleString("en-US", {
+        minute: "2-digit",
+        hour: "2-digit",
+        hour12: true,
+    });
 }
 
 export function getLeadingZero(time) {

@@ -5,7 +5,7 @@ import {
 } from "./blank-elements.js";
 import { hideLoading, showLoading } from "./animations.js";
 import { getFromStorage, saveToStorage } from "./helper-functions.js";
-import { renderAll } from "./renderData.js";
+import { renderAll } from "./render-data.js";
 import { getSettings } from "./settings.js";
 import { getUserCoords } from "./track-user.js";
 import { getWeatherData } from "./weather-data.js";

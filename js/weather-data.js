@@ -1,10 +1,11 @@
 import { hideErr, hideLoading, showErr, showLoading } from "./animations.js";
 import { isEvent, saveToStorage } from "./helper-functions.js";
-import { renderAll } from "./renderData.js";
+import { renderAll } from "./render-data.js";
 import { getIpAddress } from "./track-user.js";
 
 export async function getWeatherData(searchFor) {
-    if (isEvent(searchFor)) {
+    let argIsEvent = isEvent(searchFor);
+    if (argIsEvent) {
         // in case target is input, which should
         if (searchFor.key === "Enter") {
             let city = searchFor.target.value;
@@ -36,7 +37,7 @@ export async function getWeatherData(searchFor) {
         }
     }
     hideLoading();
-
+    console.log(weatherData);
     if (weatherData === null) {
         showErr();
         setTimeout(() => {
@@ -45,9 +46,11 @@ export async function getWeatherData(searchFor) {
         return null;
     } else {
         saveToStorage("weather-data", weatherData);
-        let dayToRender = 0;
-        saveToStorage("rendered-day", 0);
-        renderAll(weatherData, dayToRender); // have to render it here, because of triggering through event
+        if (argIsEvent) {
+            let dayToRender = 0;
+            saveToStorage("rendered-day", 0);
+            renderAll(weatherData, dayToRender); // have to render it here, because when triggered through event it just pull data
+        }
     }
     return weatherData;
 }

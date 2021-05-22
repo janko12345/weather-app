@@ -1,5 +1,5 @@
 import { saveToStorage, getFromStorage } from "./helper-functions.js";
-import { renderAll } from "./renderData.js";
+import { renderAll } from "./render-data.js";
 
 export function setInitialSettings() {
     let settings = {

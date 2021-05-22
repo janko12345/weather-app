@@ -1,5 +1,9 @@
 import { getSettings } from "./settings.js";
-import { getDayName, getLeadingZero } from "./helper-functions.js";
+import {
+    getDayName,
+    getLeadingZero,
+    to12HourFormat,
+} from "./helper-functions.js";
 export function createDayEl(dayData, index) {
     let settings = getSettings();
     let isCelsius = settings.temp === "c";
@@ -34,11 +38,16 @@ export function createDayEl(dayData, index) {
 }
 
 export function createHourEl(hourData) {
-    let date = new Date(hourData.time);
-    let hours = getLeadingZero(date.getHours());
-    let minutes = getLeadingZero(date.getMinutes());
-    let time = `${hours}:${minutes}`;
     let settings = getSettings();
+    let time;
+    if (settings.time + "" === "24") {
+        let date = new Date(hourData.time);
+        let hours = getLeadingZero(date.getHours());
+        let minutes = getLeadingZero(date.getMinutes());
+        time = `${hours}:${minutes}`;
+    } else {
+        time = to12HourFormat(hourData.time);
+    }
     let isCelsius = settings.temp === "c";
     let isKph = settings.speed === "kph";
     let isMm = settings.volume === "mm";
