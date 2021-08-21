@@ -1,5 +1,5 @@
 import { saveToStorage, getFromStorage } from "./helper-functions.js";
-import { renderAll } from "./render-data.js";
+import { renderAllData } from "./render-data.js";
 
 export function setInitialSettings() {
     let settings = {
@@ -8,8 +8,8 @@ export function setInitialSettings() {
         volume: "mm",
         speed: "kph",
         pressure: "mb",
-        gif: false,
-        astronomy: true,
+        gif: "false",
+        astronomy: "true",
         hourInterval: 1,
     };
     saveToStorage("settings", settings);

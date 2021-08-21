@@ -44,7 +44,7 @@ export function toggleAstronomyVisibility() {
     );
 }
 
-export function showDropdown() {
+export function toggleDropdown() {
     let dropdownImg = document.querySelector(".forecasts-dropdown-img");
     let dropdownMenu = document.querySelector(".forecasts-dropdown-menu");
 

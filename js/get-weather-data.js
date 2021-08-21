@@ -1,41 +1,31 @@
 import { hideErr, hideLoading, showErr, showLoading } from "./animations.js";
 import { isEvent, saveToStorage } from "./helper-functions.js";
-import { renderAll } from "./render-data.js";
+import { renderAllData } from "./render-data.js";
 import { getIpAddress } from "./track-user.js";
 
 export async function getWeatherData(searchFor) {
-    let argIsEvent = isEvent(searchFor);
-    if (argIsEvent) {
-        // in case target is input, which should
-        if (searchFor.key === "Enter") {
-            let city = searchFor.target.value;
-            searchFor = {};
-            searchFor.city = city;
-        } else {
-            return;
-        }
-    }
-
     showLoading();
-
     let weatherData;
-    let isCity = searchFor !== null && searchFor.city !== undefined;
 
-    if (searchFor !== null && isCity) {
-        weatherData = await getWeatherDataByCity(searchFor.city);
-    } else if (searchFor !== null && !isCity) {
-        weatherData = await getWeatherDataByCoords(
-            searchFor.latitude,
-            searchFor.longitude
-        );
-    } else if (searchFor === null) {
+    if (typeof searchFor !== "object") {
         let ipAddress = await getIpAddress();
         if (ipAddress !== null) {
             weatherData = await getWeatherDataByIp(ipAddress);
         } else {
             weatherData = await getWeatherDataByCity("Bratislava");
         }
+    } else {
+        const { latitude, longitude, city } = searchFor;
+        if (city) {
+            weatherData = await getWeatherDataByCity(searchFor.city);
+        } else if (latitude && longitude) {
+            weatherData = await getWeatherDataByCoords(
+                searchFor.latitude,
+                searchFor.longitude
+            );
+        }
     }
+
     hideLoading();
     console.log(weatherData);
     if (weatherData === null) {
@@ -46,11 +36,7 @@ export async function getWeatherData(searchFor) {
         return null;
     } else {
         saveToStorage("weather-data", weatherData);
-        if (argIsEvent) {
-            let dayToRender = 0;
-            saveToStorage("rendered-day", 0);
-            renderAll(weatherData, dayToRender); // have to render it here, because when triggered through event it just pull data
-        }
+        saveToStorage("rendered-day", 0);
     }
     return weatherData;
 }

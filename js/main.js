@@ -1,6 +1,5 @@
-import { updateSettings, setInitialSettings, getSettings } from "./settings.js";
+import { setInitialSettings, getSettings } from "./settings.js";
 import { pageLoadBlankRender, pageLoadDataRender } from "./render-initial.js";
-import { renderAll } from "./render-data.js";
 import {} from "./events.js"; // importing this just because events to be assigned
 
 if (getSettings() === null) {
@@ -10,8 +9,3 @@ if (getSettings() === null) {
 pageLoadBlankRender(); // needs this because it takes time while fetching data
 
 pageLoadDataRender();
-
-// events that changes data and also automatically rerenders it
-let configMenu = document.querySelector(".config-menu");
-configMenu.addEventListener("click", updateSettings);
-configMenu.addEventListener("click", renderAll);

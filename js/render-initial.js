@@ -3,12 +3,11 @@ import {
     createBlankHourForecasts,
     createBlankCurrentForecast,
 } from "./blank-elements.js";
-import { hideLoading, showLoading } from "./animations.js";
 import { getFromStorage, saveToStorage } from "./helper-functions.js";
-import { renderAll } from "./render-data.js";
+import { renderAllData } from "./render-data.js";
 import { getSettings } from "./settings.js";
 import { getUserCoords } from "./track-user.js";
-import { getWeatherData } from "./weather-data.js";
+import { getWeatherData } from "./get-weather-data.js";
 
 export function pageLoadBlankRender() {
     let numberOfDayForecasts = 3;
@@ -27,7 +26,7 @@ export async function pageLoadDataRender() {
 
     let dayToRender = 0; // rendering data on main section for particular day, in case of page load its first day
     saveToStorage("rendered-day", dayToRender);
-    renderAll(weatherData, dayToRender); // double rendered, first in getWeatherData
+    renderAllData(weatherData, dayToRender); // double rendered, first in getWeatherData
 }
 
 function renderSettingsActive() {

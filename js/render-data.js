@@ -3,12 +3,7 @@ import {
     createDayEl,
     createHourEl,
 } from "./elementsFactory.js";
-import {
-    getFromStorage,
-    isEvent,
-    saveToStorage,
-    to24HourFormat,
-} from "./helper-functions.js";
+import { to24HourFormat } from "./helper-functions.js";
 import {
     clearCurrentWeather,
     clearDayForecasts,
@@ -16,45 +11,20 @@ import {
 } from "./remove-elements.js";
 import { getSettings } from "./settings.js";
 
-export function renderAll(weatherData, index) {
-    if (isEvent(weatherData)) {
-        let event = weatherData;
-        weatherData = getFromStorage("weather-data");
-
-        let dayIndex = event.target.closest("[data-day-index]");
-        let isSettings = event.target.hasAttribute("data-settings-value");
-
-        if (dayIndex !== null) {
-            index = parseInt(dayIndex.getAttribute("data-day-index"));
-        } else if (isSettings) {
-            index = getFromStorage("rendered-day");
-        } else {
-            return;
-        }
-    }
-
+export function renderAllData(weatherData, index) {
     renderSidebar(weatherData);
     renderMainPage(weatherData, index);
 }
 
 export function renderMainPage(weatherData, index) {
-    if (isEvent(weatherData)) {
-        let event = weatherData;
-        weatherData = getFromStorage("weather-data");
-
-        let dayIndex = event.target.closest("[data-day-index]");
-        let isSettings = event.target.hasAttribute("data-settings-value");
-
-        if (dayIndex !== null) {
-            index = parseInt(dayIndex.getAttribute("data-day-index"));
-        } else if (isSettings) {
-            index = getFromStorage("rendered-day");
-        } else {
-            return;
-        }
+    let settings = getSettings();
+    if (settings.astronomy === "true") {
+        console.log("show");
+        showAstronomy();
+    } else {
+        console.log("hide");
+        hideAstronomy();
     }
-    saveToStorage("rendered-day", index);
-
     renderSunInfo(weatherData, index);
     renderHourForecasts(weatherData, index);
     renderCurrentWeather(weatherData, index);
@@ -104,24 +74,10 @@ function renderSunInfo(weatherData, index) {
     moonSet.textContent = moonset;
 }
 
-export function renderHourForecasts(weatherData, index) {
+export function renderHourForecasts(weatherData, index, interval) {
     let forecasts = document.querySelector(".forecasts");
     let settings = getSettings();
-    let hourInterval = parseInt(settings.hourInterval);
-
-    // this condition is needed here, because this function is going to be called separately by hour forecast dropdown unlike other renders
-    if (isEvent(weatherData)) {
-        let event = weatherData;
-        weatherData = getFromStorage("weather-data");
-
-        let intervalSpan = event.target.getAttribute("data-interval-span");
-        if (intervalSpan === null) {
-            return; // not clicked dedicated element from dropdown
-        } else {
-            hourInterval = parseInt(intervalSpan);
-            index = getFromStorage("rendered-day");
-        }
-    }
+    let hourInterval = +interval || +settings.hourInterval;
 
     let forecastDays = weatherData.forecast.forecastday;
     let dayToRender = forecastDays[index];
@@ -130,11 +86,12 @@ export function renderHourForecasts(weatherData, index) {
     clearHourForecasts();
     for (let i = 0; i < dayToRender.hour.length; i += hourInterval) {
         let hourData = hoursData[i];
+
         forecasts.appendChild(createHourEl(hourData));
     }
 }
 
-function renderCurrentWeather(weatherData, index) {
+function renderCurrentWeather(weatherData) {
     clearCurrentWeather();
 
     let current = document.querySelector(".current");
@@ -142,4 +99,28 @@ function renderCurrentWeather(weatherData, index) {
 
     let currentInfos = createCurrentWeatherEl(currentData);
     current.appendChild(currentInfos);
+}
+
+export function renderVisualsBySettings(event) {
+    let settingsKey = event.target.getAttribute("data-settings-key");
+
+    if (settingsKey === "astronomy") {
+        let shouldHide =
+            event.target.getAttribute("data-settings-value") === "false";
+        renderAstronomyVisibility(shouldHide);
+    } else if (settingsKey === "gif") {
+        let shouldHide =
+            event.target.getAttribute("data-settings-value") === "false";
+        renderGifVisibility(shouldHide);
+    }
+}
+
+function showAstronomy() {
+    let astronomy = document.querySelector(".astronomy");
+    astronomy.classList.remove("hide");
+}
+
+function hideAstronomy() {
+    let astronomy = document.querySelector(".astronomy");
+    astronomy.classList.add("hide");
 }
